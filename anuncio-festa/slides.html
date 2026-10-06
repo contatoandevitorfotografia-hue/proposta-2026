@@ -41,7 +41,12 @@
     color:var(--ambar); margin-bottom:18px;
   }
   .titulo{ font-weight:800; font-size:84px; line-height:1.02; letter-spacing:-.02em; }
-  .sub{ font-weight:500; font-size:40px; line-height:1.3; color:var(--cacau); margin-top:20px; }
+  .sub{ font-weight:500; font-size:36px; line-height:1.32; color:var(--cacau); margin-top:22px; }
+  .sub + .sub{ margin-top:16px; }
+  /* slides com mais texto: foto menor */
+  .longo .foto{ height:600px; }
+  .longo .texto{ top:712px; }
+  .longo .titulo{ font-size:68px; line-height:1.05; }
 
   .rodape{
     position:absolute; left:84px; right:84px; bottom:48px;
@@ -60,9 +65,10 @@
   .capa .texto{ top:auto; bottom:150px; color:var(--creme); }
   .capa .passo{ color:var(--caramelo); }
   .capa .titulo{ font-size:96px; }
+  .capa .chamada{ font-weight:600; font-size:48px; margin-top:28px; }
   .capa .destaque{
     font-family:'Fraunces',serif; font-style:italic; font-size:58px;
-    color:#E9B865; margin-top:22px;
+    color:#E9B865; margin-top:6px;
   }
   .capa .rodape{ color:var(--caramelo); }
   .seta{ display:inline-flex; align-items:center; gap:14px; color:var(--creme); }
@@ -71,9 +77,7 @@
   /* ---------- 5: virada (fundo escuro) ---------- */
   .virada{ background:var(--marrom); color:var(--creme); }
   .virada .passo{ color:var(--caramelo); }
-  .virada .foto{ height:600px; }
-  .virada .texto{ top:720px; }
-  .virada .titulo{ font-size:80px; }
+
   .virada .titulo em{ font-style:normal; color:#E9B865; display:block; }
   .virada .sub{ color:var(--caramelo); }
   .virada .rodape{ color:var(--caramelo); }
@@ -86,7 +90,7 @@
   }
   .autora{ font-weight:600; font-size:28px; color:var(--cacau); margin-top:14px; }
   .linha{ height:2px; background:var(--caramelo); width:180px; margin:30px 0 28px; }
-  .cta .titulo{ font-size:62px; line-height:1.08; }
+  .cta .titulo{ font-size:76px; line-height:1.04; }
   .botao{
     display:inline-flex; align-items:center; gap:18px; margin-top:34px;
     background:var(--ambar); color:#fff; border-radius:999px;
@@ -101,65 +105,64 @@
 <section class="slide capa" id="s1">
   <div class="fundo"><img src="fotos/foto1.jpg" style="--pos:50% 40%" alt=""></div>
   <div class="texto">
-    <p class="passo">Festa infantil</p>
-    <h1 class="titulo">A ordem certa para organizar a festa do seu filho</h1>
+    <h1 class="titulo">Vai organizar a festa do seu filho?</h1>
+    <p class="chamada">Veja por onde começar</p>
     <p class="destaque">(quase todo mundo erra)</p>
   </div>
   <div class="rodape"><span>André Vitor · Fotografia</span><span class="seta">arraste <svg viewBox="0 0 44 20"><path d="M0 10h40M32 2l8 8-8 8" fill="none" stroke="currentColor" stroke-width="3"/></svg></span></div>
 </section>
 
-<!-- 2 · PASSO 1 -->
+<!-- 2 · DATA E LOCAL -->
 <section class="slide" id="s2">
   <div class="foto"><img src="fotos/foto2.jpg" style="--pos:50% 35%" alt=""></div>
   <div class="texto">
     <p class="passo">Passo 1</p>
-    <h2 class="titulo">Data e buffet.</h2>
-    <p class="sub">Eles definem todo o resto da festa.</p>
+    <h2 class="titulo">Primeiro, data e local.</h2>
+    <p class="sub">Com essas escolhas feitas, fica mais fácil organizar os próximos detalhes da festa.</p>
   </div>
   <div class="rodape"><span>André Vitor · Fotografia</span><span>2/6</span></div>
 </section>
 
-<!-- 3 · PASSO 2 -->
-<section class="slide" id="s3">
+<!-- 3 · FOTOGRAFIA -->
+<section class="slide longo" id="s3">
   <div class="foto"><img src="fotos/foto3.jpg" style="--pos:50% 35%" alt=""></div>
   <div class="texto">
     <p class="passo">Passo 2</p>
-    <h2 class="titulo">Fotógrafo.</h2>
-    <p class="sub">Antes da decoração.<br>Parece estranho, né? Já te explico.</p>
+    <h2 class="titulo">Data definida? É hora de escolher quem vai registrar.</h2>
+    <p class="sub">Eu fotografo a festa acompanhando as brincadeiras e os momentos que acontecem de verdade, sem poses forçadas.</p>
+    <p class="sub">Consulte a disponibilidade com antecedência para reservar sua data.</p>
   </div>
   <div class="rodape"><span>André Vitor · Fotografia</span><span>3/6</span></div>
 </section>
 
-<!-- 4 · PASSO 3 -->
-<section class="slide" id="s4">
+<!-- 4 · OS DETALHES -->
+<section class="slide longo" id="s4">
   <div class="foto"><img src="fotos/foto4.jpg" style="--pos:50% 50%" alt=""></div>
   <div class="texto">
     <p class="passo">Passo 3</p>
     <h2 class="titulo">Decoração, bolo e lembrancinhas.</h2>
-    <p class="sub">Isso dá pra resolver até perto da festa.</p>
+    <p class="sub">Planeje esses detalhes com carinho e combine os prazos com cada fornecedor. Assim, tudo vai ganhando a cara de vocês.</p>
   </div>
   <div class="rodape"><span>André Vitor · Fotografia</span><span>4/6</span></div>
 </section>
 
-<!-- 5 · POR QUÊ -->
-<section class="slide virada" id="s5">
+<!-- 5 · JEITO DE FOTOGRAFAR -->
+<section class="slide virada longo" id="s5">
   <div class="foto"><img src="fotos/foto5.jpg" style="--pos:50% 30%" alt=""></div>
   <div class="texto">
-    <p class="passo">Por que essa ordem?</p>
-    <h2 class="titulo">Decoração tem mil opções. <em>Fotógrafo só tem um sábado.</em></h2>
-    <p class="sub">E os sábados de 2027 já estão sendo reservados.</p>
+    <h2 class="titulo">Menos pose. <em>Mais brincadeira.</em></h2>
+    <p class="sub">Seu filho livre para brincar. Você junto, vivendo a festa.</p>
+    <p class="sub">E eu registrando os abraços, as risadas e tudo que acontece pelo caminho.</p>
   </div>
   <div class="rodape"><span>André Vitor · Fotografia</span><span>5/6</span></div>
 </section>
 
-<!-- 6 · PROVA + CTA -->
+<!-- 6 · CONVITE -->
 <section class="slide cta" id="s6">
   <div class="foto"><img src="fotos/foto6.jpg" style="--pos:50% 35%" alt=""></div>
   <div class="texto">
-    <p class="citacao">“Nunca conheci um fotógrafo que se desse tão bem com as crianças.”</p>
-    <p class="autora">Patricia, mãe do Gui</p>
-    <div class="linha"></div>
-    <h2 class="titulo">Me manda a data da sua festa que eu te digo se ainda está livre.</h2>
+    <h2 class="titulo">Vamos guardar essa festa em fotos?</h2>
+    <p class="sub">Me conta a data e o local da festa do seu filho. Eu te digo se tenho disponibilidade para estar com vocês.</p>
     <span class="botao"><svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.6.8 5 2.3 7L4 29l7.2-2.3c1.5.8 3.1 1.2 4.8 1.2 6.6 0 12-5.4 12-12S22.6 3 16 3zm5.9 16.9c-.3.8-1.5 1.5-2.4 1.7-.6.1-1.4.2-4.2-.9-3.5-1.5-5.8-5-6-5.3-.2-.2-1.4-1.9-1.4-3.7s.9-2.6 1.3-3c.3-.3.7-.4 1-.4h.7c.2 0 .5 0 .8.6.3.7 1 2.5 1.1 2.7.1.2.1.4 0 .6-.1.2-.2.4-.4.6l-.6.7c-.2.2-.4.4-.2.8.2.4 1 1.7 2.2 2.7 1.5 1.4 2.8 1.8 3.2 2 .4.2.6.1.8-.1.2-.2 1-1.1 1.2-1.5.3-.4.5-.3.9-.2.4.1 2.2 1 2.6 1.2.4.2.6.3.7.5.1.2.1.9-.3 1.7z"/></svg>Chamar no WhatsApp</span>
   </div>
   <div class="rodape"><span>André Vitor · Fotografia</span><span>São Paulo</span></div>
