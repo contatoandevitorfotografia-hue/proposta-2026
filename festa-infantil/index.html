@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Festa Infantil — Proposta 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  @font-face{
+    font-family:'KG Do You Love Me';
+    src:url('assets/kgdoyouloveme.woff2') format('woff2');
+    font-weight:400; font-display:swap;
+  }
+  @font-face{
+    font-family:'Cormorant Garamond';
+    src:url('assets/cormorant.woff2') format('woff2');
+    font-weight:300 700; font-display:swap;
+  }
+  @font-face{
+    font-family:'Imperial Script';
+    src:url('assets/imperial.woff2') format('woff2');
+    font-weight:400; font-display:swap;
+  }
+  @font-face{
+    font-family:'Allison';
+    src:url('assets/allison.woff2') format('woff2');
+    font-weight:400;
+    font-style:normal;
+    font-display:swap;
+  }
+  @font-face{
+    font-family:'Nunito';
+    src:url('assets/figtree.woff2') format('woff2');
+    font-weight:300 900; font-display:swap;
+  }
+  .hero__logo{
+    width:clamp(64px,6.5vw,88px);
+    height:auto;
+    display:block;
+    /* centro alinhado ao centro do "infantil": 3.2rem de recuo + metade da largura da palavra (≈1.87× o font-size dela) − metade da logo */
+    margin:0 0 2.8rem calc(3.2rem + (1.05 * clamp(5.2rem, 11vw, 8.5rem)) - (clamp(64px, 6.5vw, 88px) / 2));
+  }
+  :root{
+    --glace:   #F2E9DF;  /* creme / marfim */
+    --grafite: #3A2216;  /* marrom escuro */
+    --cacau:   #8B6A52;  /* marrom médio */
+    --morango: #C8882A;  /* âmbar / dourado */
+    --linha:   #C4A880;  /* caramelo */
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    font-family:'Nunito', sans-serif;
+    background:var(--glace);
+    color:var(--grafite);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;
+    min-height:92vh;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    clip-path:inset(0);   /* recorta a foto fixa: efeito cortina desde o topo */
+  }
+  .hero__foto{
+    position:fixed; top:0; left:0;
+    width:100%; height:100vh;
+    background:url('assets/hero.jpg') 22% 28% / cover no-repeat;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .hero__foto{ position:absolute; inset:0; height:auto; }
+  }
+  /* véu suave só do lado do texto, pra garantir leitura sem esconder a foto */
+  .hero__foto::after{
+    content:'';
+    position:absolute; inset:0;
+    background:linear-gradient(90deg, transparent 42%, rgba(242,233,223,.68) 70%, rgba(242,233,223,.9) 100%);
+  }
+  .hero__conteudo{
+    position:relative;
+    width:100%;
+    padding:0 1.4rem;
+    margin:0 auto;
+    display:flex;
+    justify-content:flex-end;
+  }
+  .hero__texto{
+    max-width:560px;
+    width:100%;
+    text-align:left;
+    padding:3rem 0;
+    animation:surgir 1.2s ease both;
+  }
+  @keyframes surgir{
+    from{ opacity:0; transform:translateY(24px); }
+    to{ opacity:1; transform:none; }
+  }
+  .hero__proposta{
+    font-family:'Amatic SC', sans-serif;
+    font-size:clamp(1.05rem, 1.6vw, 1.3rem);
+    font-weight:700;
+    letter-spacing:.14em;
+    color:var(--cacau);
+    margin-left:.2rem;
+  }
+  .hero__titulo{
+    margin-top:1.6rem;
+    line-height:1;
+  }
+  .hero__titulo .festa{
+    display:block;
+    font-family:'Amatic SC', sans-serif;
+    font-weight:700;
+    font-size:clamp(1.3rem, 2.1vw, 1.7rem);
+    letter-spacing:.02em;
+    color:#3A2216;
+    margin-left:1.6rem;
+  }
+  .hero__titulo .infantil{
+    display:block;
+    font-family:'Imperial Script', cursive;
+    font-weight:400;
+    font-size:clamp(5.2rem, 11vw, 8.5rem);
+    line-height:.9;
+    color:#3A2216;
+    margin-top:-.7rem;   /* as hastes altas da caligrafia sobem ao lado de "festa" */
+    margin-left:3.2rem;
+  }
+  .hero__frase{
+    margin:2.6rem 0 0 .2rem;
+    white-space:nowrap;
+    font-size:clamp(.8rem, 2.35vw, 1.05rem);
+    font-weight:400;
+    line-height:1.7;
+    color:var(--cacau);
+  }
+
+
+  /* ============ FAIXA DE FOTOS ============ */
+  .faixa{
+    padding:clamp(2.5rem,5vw,4rem) 0;
+    background:var(--glace);
+    overflow:hidden;
+  }
+  .faixa__trilho{
+    display:flex;
+    gap:6px;
+    height:min(72vh, 600px);
+    align-items:center;
+  }
+  .faixa__trilho img{ will-change:transform; }
+  .faixa__trilho img{
+    flex:1 1 0;
+    min-width:0;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  /* enquadramento por foto: manter os rostos no recorte vertical */
+  .faixa__trilho img:nth-child(1){ object-position:50% 35%; }
+  .faixa__trilho img:nth-child(2){ object-position:68% 40%; }
+  .faixa__trilho img:nth-child(3){ object-position:50% 22%; }
+  .faixa__trilho img:nth-child(4){ object-position:50% 30%; }
+  .faixa__trilho img:nth-child(5){ object-position:50% 30%; }
+  .faixa__trilho img:nth-child(6){ object-position:42% 28%; }
+
+  @media (max-width:760px){
+    .faixa__trilho{
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
+      scroll-snap-type:x mandatory;
+      height:64vh;
+    }
+    .faixa__trilho img{
+      flex:0 0 72%;
+      scroll-snap-align:center;
+      transform:none !important;
+    }
+  }
+
+  /* ============ BANDA DE FRASE ============ */
+  .banda{
+    background:linear-gradient(115deg, #C4A880 0%, #B88A42 100%);
+    padding:clamp(4.5rem, 11vw, 7.5rem) 1.5rem;
+    text-align:center;
+  }
+  .banda p{
+    font-family:'KG Do You Love Me', cursive;
+    font-weight:400;
+    font-size:clamp(.72rem, 2.2vw, 1.6rem);
+    letter-spacing:.14em;
+    color:#F2E9DF;
+    line-height:1.7;
+    white-space:nowrap;
+  }
+
+  /* ============ DUPLA COM PARALLAX ============ */
+  .dupla{
+    padding:0 0 1.2rem;
+    background:var(--glace);
+  }
+  .dupla__grade{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+  .dupla__janela{
+    overflow:hidden;
+    height:min(72vh, 600px);
+  }
+  .dupla__janela img{
+    width:100%;
+    height:185%;          /* sobra vertical generosa: o parallax percorre até 80% da janela */
+    object-fit:cover;
+    display:block;
+    will-change:transform;
+  }
+  .dupla__janela img{ object-position:32% 42%; }
+
+  @media (max-width:760px){
+    .dupla__grade{ grid-template-columns:1fr; }
+    .dupla__janela{ height:44vh; }
+  }
+  @media (prefers-reduced-motion:reduce){
+    .dupla__janela img{ transform:none !important; height:100%; }
+  }
+
+  /* ============ CHAMADA + CARROSSEL ============ */
+  .chamada{
+    background:linear-gradient(135deg, #3A2216 0%, #4A3428 55%, #8B6A52 100%);
+    color:#F2E9DF;
+    padding:clamp(3rem,7vw,5.5rem) 0;
+  }
+  .chamada__wrap{
+    max-width:1280px;
+    margin:0 auto;
+    padding:0 1.4rem;
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:clamp(2rem,4vw,4rem);
+    align-items:center;
+  }
+  .chamada__tag{
+    font-family:'Nunito', sans-serif;
+    font-size:.78rem;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    color:#C4A880;
+    margin-bottom:1.1rem;
+  }
+  .chamada__titulo{
+    font-family:'KG Do You Love Me', cursive;
+    font-weight:400;
+    font-size:clamp(2.1rem,4vw,3.4rem);
+    line-height:1.08;
+    margin:0 0 1.4rem;
+  }
+  .chamada__risco{
+    width:min(340px,70%);
+    height:2px;
+    background:#C4A880;
+    border:none;
+    margin:0 0 1.4rem;
+  }
+  .chamada__sub{
+    font-size:1.02rem;
+    line-height:1.65;
+    color:#F2E9DF;
+    max-width:44ch;
+    margin-bottom:2.2rem;
+  }
+  .chamada__cta{
+    display:inline-block;
+    font-family:'Nunito', sans-serif;
+    font-size:.85rem;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:#F2E9DF;
+    text-decoration:none;
+    border:1.5px solid #F2E9DF;
+    border-radius:999px;
+    padding:1.05rem 2.6rem;
+    transition:background .25s, color .25s;
+  }
+  .chamada__cta:hover{ background:#F2E9DF; color:#3A2216; }
+
+  .carrossel{
+    position:relative;
+  }
+  .carrossel__viewport{ overflow:hidden; }
+  .carrossel__trilho{
+    display:flex;
+    transition:transform .55s cubic-bezier(.4,0,.2,1);
+  }
+  .carrossel__slide{
+    flex:0 0 50%;
+    padding:0 .5rem;
+    box-sizing:border-box;
+  }
+  .carrossel__slide img{
+    width:100%;
+    height:min(64vh,540px);
+    object-fit:cover;
+    border-radius:10px;
+    display:block;
+  }
+  .carrossel__seta{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:none;
+    border:none;
+    color:#F2E9DF;
+    font-size:2.2rem;
+    line-height:1;
+    cursor:pointer;
+    padding:.4rem;
+    opacity:.85;
+    transition:opacity .2s;
+    z-index:2;
+  }
+  .carrossel__seta:hover{ opacity:1; }
+  .carrossel__seta--ant{ left:-1.6rem; }
+  .carrossel__seta--prox{ right:-1.6rem; }
+
+  .c1{ object-position:55% 35%; }
+  .c2{ object-position:50% 28%; }
+  .c3{ object-position:58% 58%; }
+  .c4{ object-position:50% 22%; }
+  .c5{ object-position:50% 25%; }
+  .c6{ object-position:50% 45%; }
+  .c7{ object-position:50% 45%; }
+  .c8{ object-position:48% 35%; }
+  .c9{ object-position:50% 50%; }
+  .c10{ object-position:40% 40%; }
+
+  @media (max-width:860px){
+    .chamada__wrap{ grid-template-columns:1fr; }
+    .carrossel__slide{ flex:0 0 100%; }
+    .carrossel__seta--ant{ left:.2rem; }
+    .carrossel__seta--prox{ right:.2rem; }
+    .carrossel__slide img{ height:52vh; }
+  }
+
+  /* ============ DEPOIMENTOS ============ */
+  .depoimentos{
+    background:#EBDFCE;
+    padding:clamp(3rem,7vw,5.5rem) 1.4rem;
+  }
+  .depoimentos__tag{
+    font-family:'Amatic SC', sans-serif;
+    font-style:normal;
+    font-weight:700;
+    font-size:clamp(1.4rem,2.2vw,1.8rem);
+    color:#8B6A52;
+    text-align:center;
+    margin:0 0 2.6rem;
+  }
+  .depoimentos__grade{
+    max-width:1240px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1.4rem;
+    align-items:stretch;
+  }
+  .depoimento{
+    background:#FBF7F0;
+    border-radius:26px;
+    padding:2.4rem 2.2rem 2.6rem;
+    display:flex;
+    flex-direction:column;
+  }
+  .depoimento__foto{
+    width:82px;
+    height:82px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:1.8rem;
+  }
+  .depoimento__texto{
+    font-family:'Nunito', sans-serif;
+    font-weight:400;
+    font-size:1rem;
+    line-height:1.7;
+    color:#4A3428;
+    margin:0 0 1.6rem;
+  }
+  .depoimento__nome{
+    font-family:'Nunito', sans-serif;
+    font-size:1.02rem;
+    color:#8B6A52;
+    margin-top:auto;
+  }
+  @media (max-width:900px){
+    .depoimentos__grade{ grid-template-columns:1fr; max-width:560px; }
+  }
+
+  /* ============ DIFERENCIAIS ============ */
+  .diferenciais{
+    background:var(--glace);
+    padding:clamp(2.5rem,6vw,4rem) 1.4rem;
+    text-align:center;
+  }
+  .diferenciais__tag{
+    font-family:'Amatic SC', sans-serif;
+    font-style:normal;
+    font-weight:700;
+    font-size:clamp(1.4rem,2.2vw,1.8rem);
+    color:var(--cacau);
+    margin:0 0 2rem;
+  }
+  .diferenciais__intro{
+    font-family:'Nunito', sans-serif;
+    font-weight:400;
+    font-size:clamp(1rem,2vw,1.15rem);
+    line-height:1.75;
+    color:var(--grafite);
+    max-width:640px;
+    margin:0 auto 2.4rem;
+  }
+  .diferenciais__card{
+    max-width:640px;
+    margin:0 auto;
+    background:#FBF7F0;
+    border-radius:26px;
+    padding:2.4rem 2.6rem;
+  }
+  .diferenciais__texto{
+    font-family:'Nunito', sans-serif;
+    font-weight:400;
+    font-size:1.05rem;
+    line-height:1.75;
+    color:#4A3428;
+    margin:0 0 1.4rem;
+  }
+  .diferenciais__nome{
+    font-family:'Nunito', sans-serif;
+    font-size:1.02rem;
+    color:#8B6A52;
+  }
+
+  /* ============ PLANOS (redesign: Bricolage Grotesque + Nunito) ============ */
+  .planos{
+    --pl-creme:      #F2E9DF;
+    --pl-marrom-esc: #3A2216;
+    --pl-ambar:      #C8882A;
+    --pl-dourado-cl: #B88A42;
+    --pl-marrom-med: #8B6A52;
+    --pl-caramelo:   #C4A880;
+    --pl-marrom-prof:#4A3428;
+    --pl-cinza-q:    #6A5E58;
+    background:var(--pl-creme);
+    padding:clamp(3rem,7vw,5.5rem) 1.2rem;
+  }
+  .planos__miolo{ max-width:480px; margin:0 auto; }
+  .planos__titulo{
+    font-family:'Amatic SC', sans-serif;
+    font-weight:700;
+    font-size:clamp(1.7rem,4vw,2.1rem);
+    color:var(--pl-marrom-esc);
+    text-align:center;
+    letter-spacing:-.01em;
+    margin:0 0 .5rem;
+  }
+  .planos__subtitulo{
+    font-family:'Nunito', sans-serif;
+    font-size:.92rem;
+    font-weight:500;
+    color:var(--pl-marrom-med);
+    text-align:center;
+    margin:0 0 1.8rem;
+  }
+
+  .plano{
+    position:relative;
+    border-radius:22px;
+    margin-bottom:1rem;
+    background:#EBDFCE;
+    border:1.5px solid transparent;
+    transition:background .3s ease, border-color .3s ease, box-shadow .3s ease;
+  }
+  .plano.aberto{
+    background:#FBF7F0;
+    border-color:var(--pl-caramelo);
+    box-shadow:0 10px 28px rgba(58,34,22,.1);
+  }
+  .plano--top{ background:#F0E3CB; }
+  .plano--top.aberto{ background:#FCF6E8; border-color:var(--pl-ambar); }
+
+  .plano__selo{
+    position:absolute;
+    top:-.7rem; left:1.5rem;
+    background:var(--pl-ambar);
+    color:var(--pl-creme);
+    font-family:'Nunito', sans-serif;
+    font-size:.6rem;
+    font-weight:700;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    padding:.32rem .8rem;
+    border-radius:999px;
+    white-space:nowrap;
+    box-shadow:0 3px 8px rgba(200,136,42,.35);
+  }
+
+  .plano__cabecalho{
+    all:unset;
+    box-sizing:border-box;
+    display:flex; align-items:center; justify-content:space-between;
+    width:100%;
+    padding:1.15rem 1.3rem;
+    cursor:pointer;
+    min-height:56px;
+  }
+  .plano__nome-preco{ display:flex; flex-direction:column; gap:.15rem; }
+  .plano__nome{
+    font-family:'Amatic SC', sans-serif;
+    font-weight:700;
+    font-size:1.18rem;
+    color:var(--pl-marrom-esc);
+    display:flex; align-items:center; gap:.4rem;
+  }
+  .plano__preco-mini{
+    font-family:'Nunito', sans-serif;
+    font-size:.85rem;
+    font-weight:700;
+    color:var(--pl-marrom-med);
+  }
+  .plano__seta{
+    color:var(--pl-marrom-med);
+    font-size:1rem;
+    transition:transform .35s cubic-bezier(.4,0,.2,1);
+    flex-shrink:0;
+    margin-left:.8rem;
+  }
+  .plano.aberto .plano__seta{ transform:rotate(180deg); color:var(--pl-ambar); }
+
+  .plano__corpo{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .45s cubic-bezier(.4,0,.2,1);
+  }
+  .plano.aberto .plano__corpo{ max-height:640px; }
+  .plano__corpo-int{
+    padding:0 1.3rem 1.4rem;
+    opacity:0;
+    transform:translateY(-8px);
+    transition:opacity .35s ease, transform .35s ease;
+  }
+  .plano.aberto .plano__corpo-int{
+    opacity:1; transform:translateY(0);
+    transition-delay:.1s;
+  }
+
+  .plano__desc{
+    font-family:'Nunito', sans-serif;
+    font-size:.88rem;
+    font-weight:500;
+    color:var(--pl-marrom-med);
+    line-height:1.5;
+    padding-top:.1rem;
+    margin-bottom:1.1rem;
+  }
+
+  .plano__itens{ list-style:none; margin-bottom:.2rem; padding:0; }
+  .plano__itens li{
+    font-family:'Nunito', sans-serif;
+    font-size:.88rem;
+    font-weight:500;
+    line-height:1.5;
+    color:var(--pl-marrom-prof);
+    padding:.5rem 0 .5rem 1.5rem;
+    position:relative;
+    border-bottom:1px solid #E5D9C6;
+  }
+  .plano__itens li:last-child{ border-bottom:none; }
+  .plano__itens li::before{
+    content:"✓";
+    position:absolute; left:0; top:.5rem;
+    color:var(--pl-dourado-cl);
+    font-weight:700;
+    font-size:.82rem;
+  }
+
+  .plano__notas{ margin:.7rem 0 1.2rem; }
+  .plano__notas p{
+    font-family:'Nunito', sans-serif;
+    font-size:.7rem;
+    font-style:italic;
+    font-weight:400;
+    color:var(--pl-caramelo);
+    line-height:1.6;
+    margin:0 0 .3rem;
+  }
+  .plano__notas p:last-child{ margin-bottom:0; }
+
+  .plano__parcelamento{
+    font-family:'Nunito', sans-serif;
+    font-size:.82rem;
+    font-weight:500;
+    color:var(--pl-cinza-q);
+    text-align:center;
+    margin:0 0 1rem;
+  }
+  .plano__parcelamento strong{
+    font-family:'Bricolage Grotesque', sans-serif;
+    font-weight:700;
+    font-size:1.5rem;
+    color:var(--pl-marrom-esc);
+    display:block;
+    margin-bottom:.25rem;
+  }
+
+  .plano__cta{
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Nunito', sans-serif;
+    font-weight:700;
+    font-size:.95rem;
+    text-decoration:none;
+    color:var(--pl-creme);
+    background:var(--pl-marrom-esc);
+    padding:.95rem; border-radius:999px;
+    min-height:50px;
+    transition:opacity .2s;
+  }
+  .plano--top .plano__cta{ background:var(--pl-ambar); }
+  .plano__cta:active{ opacity:.85; }
+  .plano__cta-secundario{
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Nunito', sans-serif;
+    font-weight:700;
+    font-size:.88rem;
+    text-decoration:none;
+    color:var(--pl-marrom-esc);
+    background:none;
+    border:1.5px solid var(--pl-marrom-esc);
+    padding:.85rem; border-radius:999px;
+    margin-top:.7rem;
+    transition:opacity .2s;
+  }
+  .plano__cta-secundario:active{ opacity:.7; }
+
+  /* ============ PRÓXIMOS PASSOS ============ */
+  .passos{
+    background:var(--glace);
+    padding:clamp(3rem,7vw,5.5rem) 1.4rem;
+  }
+  .passos__wrap{ max-width:860px; margin:0 auto; }
+  .passos__tag{
+    font-size:.78rem; letter-spacing:.28em; text-transform:uppercase;
+    color:var(--cacau); margin:0 0 .8rem;
+  }
+  .passos__titulo{
+    font-family:'KG Do You Love Me', cursive;
+    font-weight:400;
+    font-size:clamp(2.6rem,5vw,4rem);
+    color:var(--grafite);
+    margin:0 0 3rem;
+  }
+  .passo{
+    display:grid;
+    grid-template-columns:84px 1fr;
+    gap:1.2rem;
+    margin-bottom:2.6rem;
+    align-items:start;
+  }
+  .passo__num{
+    width:84px; height:84px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Nunito', sans-serif; font-size:1.15rem; font-weight:500;
+  }
+  .passo:nth-child(3) .passo__num{ background:#F0E3CB; color:#B88A42; }
+  .passo:nth-child(4) .passo__num{ background:#F0E3CB; color:#8B6A52; }
+  .passo:nth-child(5) .passo__num{ background:#F0E3CB; color:#C8882A; }
+  .passo__titulo{
+    font-family:'Nunito', sans-serif; font-weight:700;
+    font-size:1.25rem; color:var(--grafite);
+    margin:.4rem 0 .7rem;
+  }
+  .passo__texto{
+    font-size:1.05rem; line-height:1.75; color:#4A3428; margin:0;
+    max-width:60ch;
+  }
+  .passos__aviso{
+    background:#EBDFCE;
+    border-left:3px solid #3A2216;
+    border-radius:18px;
+    padding:1.8rem 2rem;
+    font-size:1.02rem; line-height:1.75; color:#4A3428;
+    margin-top:1.4rem;
+  }
+  .passos__aviso strong{ color:var(--grafite); }
+  @media (max-width:640px){
+    .passo{ grid-template-columns:56px 1fr; }
+    .passo__num{ width:56px; height:56px; }
+  }
+
+  /* ============ MOSAICO 6 FOTOS PARALLAX ============ */
+  .mosaico{
+    overflow:hidden;
+    padding:clamp(3.5rem,7vw,6rem) 0;
+  }
+  .mosaico__grade{
+    display:grid;
+    grid-template-columns:repeat(6, 1fr);
+    gap:6px;
+    align-items:center;
+  }
+  .mosaico__janela img{
+    width:100%;
+    height:auto;          /* proporção original, sem corte */
+    display:block;
+    will-change:transform;
+  }
+  @media (max-width:860px){
+    .mosaico__grade{ grid-template-columns:repeat(2, 1fr); }
+    .mosaico__janela img{ transform:none !important; }
+  }
+
+  /* ============ BANNER FINAL ============ */
+  .final{
+    background:linear-gradient(135deg, #3A2216 0%, #3A2216 60%, #4A3428 100%);
+    color:#F2E9DF;
+    padding:clamp(4rem,9vw,7rem) 1.4rem;
+  }
+  .final__wrap{ max-width:1240px; margin:0 auto; }
+  .final__titulo{
+    font-family:'Amatic SC', sans-serif;
+    font-weight:700;
+    font-size:clamp(2.6rem,5.5vw,4.6rem);
+    line-height:1.15;
+    margin:0 0 1.6rem;
+    max-width:16ch;
+  }
+  .final__sub{
+    font-size:1.05rem;
+    line-height:1.75;
+    color:#F2E9DF;
+    max-width:46ch;
+    margin:0 0 2.6rem;
+  }
+  .final__botoes{ display:flex; flex-direction:column; gap:1rem; align-items:flex-start; }
+  .final__zap{
+    display:inline-flex; align-items:center; gap:.6rem;
+    font-family:'Nunito', sans-serif; font-size:1rem; font-weight:700;
+    text-decoration:none;
+    background:var(--morango); color:#fff;
+    padding:1.05rem 2.2rem; border-radius:999px;
+    transition:opacity .2s;
+  }
+  .final__zap:hover{ opacity:.88; }
+  .final__insta{
+    display:inline-flex; align-items:center; gap:.6rem;
+    font-family:'Nunito', sans-serif; font-size:.98rem; font-weight:400;
+    text-decoration:none;
+    color:#F2E9DF;
+    border:1.5px solid rgba(242,233,223,.5);
+    padding:.9rem 2rem; border-radius:999px;
+    transition:border-color .2s, background .2s;
+  }
+  .final__insta:hover{ border-color:#F2E9DF; background:rgba(242,233,223,.08); }
+  .final__botoes svg{ width:20px; height:20px; fill:currentColor; }
+
+  /* ============ FOTO PRESA AO FUNDO (estilo cortina) ============ */
+  .fixo{
+    clip-path: inset(0);
+    height:min(88vh, 780px);
+    position:relative;
+  }
+  .fixo__img{
+    position:fixed;
+    top:0; left:0;
+    width:100%;
+    height:100vh;
+    object-fit:cover;
+    z-index:-1;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .fixo__img{ position:absolute; height:100%; }
+  }
+
+  /* efeito de cortina removido: mosaico agora é uma grade estática, sem espaço de rolagem reservado */
+
+  /* ============ BIO ============ */
+  .bio{
+    position:relative;
+    background:#EBDFCE;   /* mesma cor do fundo da foto: emenda invisível */
+    overflow:hidden;
+  }
+  .bio__quadro{
+    width:min(1200px, 92%);
+    margin:0 auto;
+    min-height:min(88vh, 720px);
+    display:flex;
+    align-items:center;
+  }
+  .bio__texto{
+    max-width:520px;
+    padding:4.5rem 0;
+    text-align:center;
+  }
+  .bio__olho{
+    font-family:'Amatic SC', sans-serif;
+    font-size:1.15rem;
+    font-weight:700;
+    letter-spacing:.18em;
+    color:#8B6A52;
+  }
+  .bio__titulo{
+    margin-top:1.4rem;
+    font-family:'Amatic SC', sans-serif;
+    font-weight:700;
+    font-size:clamp(2.2rem, 4.5vw, 3.4rem);
+    line-height:1.1;
+    color:#3A2216;
+  }
+  .bio__titulo .assinatura{
+    font-family:'Allison', cursive;
+    font-weight:400;
+    font-size:1.6em;
+    line-height:.9;
+    color:#3A2216;
+    margin-left:.15em;
+  }
+  .bio__risco{
+    width:220px;
+    height:1px;
+    border:none;
+    background:#C4A880;
+    margin:2rem auto;
+  }
+  .bio__texto p:not(.bio__olho){
+    font-size:1rem;
+    line-height:1.75;
+    color:#4A3428;
+    margin-bottom:1.1rem;
+  }
+  .bio__numeros{
+    display:flex;
+    justify-content:center;
+    gap:3.5rem;
+    margin-top:2.4rem;
+  }
+  .bio__numeros strong{
+    display:block;
+    font-family:'Bricolage Grotesque', sans-serif;
+    font-weight:600;
+    font-size:clamp(2.2rem, 4vw, 3rem);
+    color:#3A2216;
+    line-height:1;
+  }
+  .bio__numeros span{
+    display:block;
+    margin-top:.4rem;
+    font-size:.9rem;
+    color:#3A2216;
+  }
+  .bio__foto{
+    position:absolute;
+    right:0; bottom:0;
+    height:100%;
+    width:auto;
+    max-width:48vw;
+    object-fit:contain;
+    object-position:right bottom;
+  }
+  @media (max-width:900px){
+    .bio__quadro{ min-height:0; }
+    .bio__texto{ max-width:none; margin:0 auto; padding-bottom:2rem; }
+    .bio__foto{ position:static; display:block; width:min(420px, 88%); max-width:none; height:auto; margin:0 auto; }
+  }
+
+  /* ============ MOBILE ============ */
+  @media (max-width:760px){
+    .hero{
+      min-height:auto;
+      flex-direction:column;
+      align-items:stretch;
+    }
+    .hero__foto{
+      position:relative;
+      inset:auto;
+      height:52vh;
+      background-position:40% 22%;
+    }
+    .hero__foto::after{
+      background:linear-gradient(180deg, transparent 70%, var(--glace) 100%);
+    }
+    .hero__conteudo{ justify-content:center; }
+    .hero__texto{ padding:1rem 0 3.5rem; }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .hero__texto{ animation:none; }
+    html{ scroll-behavior:auto; }
+  }
+
+  /* ============ AJUSTES MOBILE (revisão pós-teste no celular) ============ */
+  @media (max-width:760px){
+    /* 1) hero: texto mais alto, logo centralizada */
+    .hero__foto{ height:44vh; }
+    .hero__texto{ padding:.4rem 0 2.2rem; }
+    .hero__logo{ margin:0 auto 1rem auto; }
+
+    /* 2) faixa: as 6 fotos lado a lado ocupando a largura toda */
+    .faixa{ padding:1.2rem 0; }
+    .faixa__trilho{
+      overflow:visible;
+      scroll-snap-type:none;
+      height:46vw;
+      gap:3px;
+    }
+    .faixa__trilho img{
+      flex:1 1 0;
+      min-width:0;
+      scroll-snap-align:none;
+      transform:none !important;
+      height:100%;
+    }
+
+    /* 3) bio: título menor, foto pequena ao lado */
+    .bio__quadro{ position:relative; }
+    .bio__titulo{ font-size:1.5rem; }
+    .bio__olho{ font-size:.82rem; }
+    .bio__olho, .bio__titulo{ max-width:calc(100% - 148px); }
+    .bio__foto{
+      position:absolute; top:0; right:1rem;
+      width:118px; height:auto; margin:0;
+      -webkit-mask-image:linear-gradient(180deg, #000 60%, transparent 97%);
+      mask-image:linear-gradient(180deg, #000 60%, transparent 97%);
+    }
+
+    /* 4) carrossel da chamada: duas fotos por página, menores */
+    .carrossel__slide{ flex:0 0 50%; padding:0 .25rem; }
+    .carrossel__slide img{ height:30vh; }
+
+    /* 5) fotos de tela cheia (Henry e mesa): inteiras E presas ao fundo (cortina mantida) */
+    .fixo{ height:58vh; }
+    .fixo__img{ object-fit:contain; object-position:50% 50%; }
+
+    /* 6) depoimentos: uma linha só, arrastável */
+    .depoimentos{ padding:2.4rem 0 2.6rem; }
+    .depoimentos__grade{
+      display:flex;
+      max-width:none;
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
+      scroll-snap-type:x mandatory;
+      gap:.9rem;
+      padding:0 1.2rem;
+    }
+    .depoimento{
+      flex:0 0 82%;
+      scroll-snap-align:center;
+      padding:1.5rem 1.4rem 1.7rem;
+      border-radius:20px;
+    }
+    .depoimento__foto{ width:54px; height:54px; margin-bottom:1rem; }
+    .depoimento__texto{ font-size:.92rem; line-height:1.6; margin-bottom:1.1rem; }
+    .depoimento__nome{ font-size:.9rem; }
+
+    /* 8) próximos passos: tipografia menor */
+    .passos__titulo{ font-size:2rem; margin-bottom:2rem; }
+    .passo{ grid-template-columns:48px 1fr; gap:.9rem; margin-bottom:1.8rem; }
+    .passo__num{ width:48px; height:48px; font-size:.95rem; }
+    .passo__titulo{ font-size:1.05rem; margin:.3rem 0 .4rem; }
+    .passo__texto{ font-size:.95rem; line-height:1.6; }
+    .passos__aviso{ font-size:.92rem; padding:1.2rem 1.3rem; }
+
+    /* 9) mosaico: igual à faixa — mesma altura, recorte uniforme */
+    .mosaico{ padding:1.2rem 0; }
+    .mosaico__grade{ grid-template-columns:repeat(6, 1fr); gap:3px; }
+    .mosaico__janela{ overflow:hidden; height:46vw; }
+    .mosaico__janela img{ height:100%; width:100%; object-fit:cover; object-position:50% 28%; }
+  }
+
+  /* ============ CORTINAS MOBILE: hero, planos e mosaico ============ */
+  @media (max-width:760px) and (prefers-reduced-motion:no-preference){
+    /* hero: foto presa ao fundo, janela de 44vh desliza por cima */
+    .hero__foto{
+      clip-path:inset(0);
+      background:none;
+      position:relative;
+      height:calc(100vw / 1.5);   /* janela na proporção exata da foto */
+    }
+    .hero__foto::before{
+      content:'';
+      position:fixed; top:0; left:0;
+      width:100%; height:100vh;
+      background:var(--glace) url('assets/hero.jpg') top center / 100% auto no-repeat;
+    }
+    /* mosaico: tira pinada ao fundo, banner final cobre */
+    .mosaico{ clip-path:inset(0); height:115vh; padding:0; }
+    .mosaico__fixo{
+      position:fixed; top:0; left:0;
+      width:100%; height:100vh;
+      background:var(--glace);
+      display:flex; align-items:center;
+    }
+  }
+  /* ============ CORTINA EM TUDO (mobile) ============ */
+  @media (max-width:760px) and (prefers-reduced-motion:no-preference){
+    /* chamada mais compacta */
+    .chamada__titulo{ font-size:1.6rem; margin-bottom:.9rem; }
+    .chamada__tag{ margin-bottom:.7rem; }
+    .chamada__sub{ font-size:.93rem; margin-bottom:1.3rem; }
+    .chamada__cta{ padding:.85rem 1.8rem; font-size:.78rem; }
+    .carrossel__slide img{ height:24vh; }
+
+    /* próximos passos mais compactos */
+    .passos__titulo{ font-size:1.7rem; margin-bottom:1.3rem; }
+    .passo{ margin-bottom:1.1rem; }
+    .passo__texto{ font-size:.9rem; line-height:1.55; }
+    .passos__aviso{ font-size:.84rem; padding:.9rem 1rem; line-height:1.55; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero__foto" role="img" aria-label="Menina sorrindo em meio a bolinhas brancas"></div>
+  <div class="hero__conteudo">
+    <div class="hero__texto">
+      <picture aria-hidden="true">
+        <source media="(prefers-reduced-motion: reduce)" srcset="assets/logo-poster.png">
+        <source type="image/webp" srcset="assets/logo-anim.webp">
+        <img class="hero__logo" src="assets/logo-poster.png" alt="">
+      </picture>
+      <p class="hero__proposta">proposta &middot; 2026</p>
+      <h1 class="hero__titulo">
+        <span class="festa">festa</span>
+        <span class="infantil">infantil</span>
+      </h1>
+    </div>
+  </div>
+</header>
+
+<section class="faixa" aria-label="Fotos de festas infantis">
+<div class="pin__fixo">
+  <div class="faixa__trilho">
+    <img src="assets/festa1.jpg" data-parallax="0.5" alt="Menina sorrindo com espaguetes coloridos nos olhos, em piscina de espumas">
+    <img src="assets/festa2.jpg" data-parallax="0.75" alt="Menino deitado entre bolinhas coloridas, rindo">
+    <img src="assets/festa3.jpg" data-parallax="0.6" alt="Bebê de jardineira em pé no brinquedão">
+    <img src="assets/festa4.jpg" data-parallax="0.85" alt="Menina de vestido vermelho brincando na piscina de bolinhas">
+    <img src="assets/festa5.jpg" data-parallax="0.55" alt="Menina de vestido listrado comendo docinho">
+    <img src="assets/festa6.jpg" data-parallax="0.8" alt="Bebê sorrindo no brinquedão amarelo">
+  </div>
+</div>
+</section>
+
+<section class="banda">
+<div class="pin__fixo">
+  <p>A inf&acirc;ncia como ela acontece.</p>
+</div>
+</section>
+
+
+<section class="fixo" aria-label="Momentos de festa">
+  <img class="fixo__img" src="assets/solo.jpg" alt="Menino sorrindo espiando pela janela de casa" style="object-position:32% 42%">
+</section>
+
+<section class="bio">
+<div class="pin__fixo">
+  <div class="bio__quadro">
+    <div class="bio__texto">
+      <p class="bio__olho">o fot&oacute;grafo</p>
+      <h2 class="bio__titulo">Ol&aacute;, eu sou o <span class="assinatura">Andr&eacute;!</span></h2>
+      <hr class="bio__risco">
+      <p>Fotografar crian&ccedil;a &eacute; registrar a verdade. Aprendi que as melhores mem&oacute;rias nascem da espontaneidade. Meu prop&oacute;sito &eacute; entregar mais do que fotos; &eacute; entregar heran&ccedil;as de fam&iacute;lia.</p>
+      <p>Meu olhar busca o que &eacute; invis&iacute;vel: a gargalhada solta, o detalhe do carinho e a emo&ccedil;&atilde;o que transborda.</p>
+      <p>Um trabalho feito com afeto, cuidado pessoal em todas as fases e o compromisso de manter viva a magia de ser crian&ccedil;a.</p>
+      <div class="bio__numeros">
+        <div><strong>+10</strong><span>anos de experi&ecirc;ncia</span></div>
+        <div><strong>+1.000</strong><span>festas fotografadas</span></div>
+      </div>
+    </div>
+  </div>
+  <img class="bio__foto" src="assets/andre.png" alt="Andr&eacute; Vitor, fot&oacute;grafo, sorrindo">
+</div>
+</section>
+<section class="chamada" aria-label="Fotografia afetiva e espontânea">
+<div class="pin__fixo">
+  <div class="chamada__wrap">
+    <div>
+      <p class="chamada__tag">Fotografia afetiva e espontânea</p>
+      <h2 class="chamada__titulo">Menos pose. Mais brincadeira.</h2>
+      <hr class="chamada__risco">
+      <p class="chamada__sub">O pezinho sujo de tanto correr, a gargalhada com os amigos, o abraço apertado nos avós e tudo aquilo que acontece quando ninguém precisa parar para olhar para a câmera.</p>
+      <p class="chamada__sub">Meu trabalho é acompanhar a festa do jeito que ela acontece, entrando no mundo deles, sem tirá-los de lá.</p>
+      <a class="chamada__cta" href="#investimento">Garantir minha data</a>
+    </div>
+    <div class="carrossel">
+      <button class="carrossel__seta carrossel__seta--ant" aria-label="Fotos anteriores">&laquo;</button>
+      <div class="carrossel__viewport">
+        <div class="carrossel__trilho">
+      <div class="carrossel__slide"><img src="assets/cena1.jpg" alt="Menino sorrindo entre bolinhas brancas e verdes" class="c1" loading="lazy"></div>
+      <div class="carrossel__slide"><img src="assets/cena2.jpg" alt="Menina rindo no topo do escorregador de madeira" class="c2" loading="lazy"></div>
+      <div class="carrossel__slide"><img src="assets/cena3.jpg" alt="Menino espiando de dentro do túnel de brincar" class="c3" loading="lazy"></div>
+      <div class="carrossel__slide"><img src="assets/cena4.jpg" alt="Menino com a boca suja de brigadeiro" class="c4" loading="lazy"></div>
+      <div class="carrossel__slide"><img src="assets/cena5.jpg" alt="Bebê em pé no playground segurando a rede" class="c5" loading="lazy"></div>
+      <div class="carrossel__slide"><img src="assets/cena6.jpg" alt="Menina correndo dentro do túnel decorado" class="c6" loading="lazy"></div>
+      <div class="carrossel__slide"><img src="assets/cena7.jpg" alt="Menino engatinhando dentro do tubo branco" class="c7" loading="lazy"></div>
+      <div class="carrossel__slide"><img src="assets/cena8.jpg" alt="Bebê espiando por trás dos degraus coloridos" class="c8" loading="lazy"></div>
+      <div class="carrossel__slide"><img src="assets/cena9.jpg" alt="Detalhe dos pezinhos do bebê, um só de meia" class="c9" loading="lazy"></div>
+      <div class="carrossel__slide"><img src="assets/cena10.jpg" alt="Menina sorrindo entre as cortinas brancas" class="c10" loading="lazy"></div>
+        </div>
+      </div>
+      <button class="carrossel__seta carrossel__seta--prox" aria-label="Próximas fotos">&raquo;</button>
+    </div>
+  </div>
+</div>
+</section>
+
+
+
+
+<section class="fixo" aria-label="Amigos embaixo da mesa">
+  <img class="fixo__img" src="assets/mesa.jpg" alt="Duas crianças comendo doces sentadas embaixo da mesa" style="object-position:50% 45%">
+</section>
+
+<section class="depoimentos" aria-label="Depoimentos de famílias">
+<div class="pin__fixo">
+  <p class="depoimentos__tag">o que as famílias dizem</p>
+  <div class="depoimentos__grade">
+
+    <article class="depoimento">
+      <img class="depoimento__foto" src="assets/dep1.jpg" alt="Família da Helena na festa" style="object-position:50% 28%">
+      <p class="depoimento__texto">André, estou sem palavras!!! Dei risada, chorei, fiquei mto feliz com o resultado. Você capturou a essência da nossa menina, pura alegria e diversão! MUITO OBRIGADA e parabéns pelo seu trabalho, há tempos eu não via fotos tão naturais e vivas. AMAMOS!!!</p>
+      <p class="depoimento__nome">Carol, mãe da Helena</p>
+    </article>
+
+    <article class="depoimento">
+      <img class="depoimento__foto" src="assets/dep2.jpg" alt="Família do Enrico na festa" style="object-position:50% 30%">
+      <p class="depoimento__texto">Passando para agradecer toda atenção de ontem! Você é 10! Toda minha família gostou muito de você! Todos estão me perguntando onde conheci você kkk porque você é muito simpático! Seu astral é contagiante! Parabéns pelo trabalho excelente e pelo sorriso contagiante! Isso deixa a festa muito mais leve! Obrigada!</p>
+      <p class="depoimento__nome">Suzana, mãe do Enrico</p>
+    </article>
+
+    <article class="depoimento">
+      <img class="depoimento__foto" src="assets/dep3.jpg" alt="Família do Guilherme na festa" style="object-position:50% 26%">
+      <p class="depoimento__texto">Que maravilhoso é ver você trabalhando com as crianças! O Gui costuma demorar muito pra ir com as pessoas que não conhece e ele adorou você!! Achei muito fofo! E nunca conheci um fotógrafo que se desse tão bem com as crianças. Foi exatamente o que está descrito na sua proposta (sobre sentar pra brincar com as crianças) e acho que isso ajuda a ter ótimas fotos! Com o Gui com certeza funcionou ❤️</p>
+      <p class="depoimento__nome">Patricia, mãe do Gui</p>
+    </article>
+
+  </div>
+</div>
+</section>
+
+<section class="diferenciais" aria-label="Diferenciais">
+  <p class="diferenciais__tag">Diferenciais</p>
+  <p class="diferenciais__intro">Fotografia infantil se faz com conexão. Mais do que fotos bonitas, a minha prioridade é criar um ambiente leve e acolhedor, onde as crianças brinquem e se sintam à vontade para os sorrisos saírem de verdade.</p>
+  <article class="diferenciais__card">
+    <p class="diferenciais__texto">A mãe de um amiguinho da Lara me mandou uma mensagem só para te elogiar: disse que o filho dela "alugou" a festa inteira do seu lado, e que você foi super querido com ele!</p>
+    <p class="diferenciais__nome">Rafa, mãe da Lara</p>
+  </article>
+</section>
+
+<section class="planos" id="investimento" aria-label="Planos e investimento">
+  <div class="planos__miolo">
+    <h2 class="planos__titulo">Nossos Planos</h2>
+    <p class="planos__subtitulo">Toque em um plano para conhecer tudo o que ele inclui</p>
+
+    <article class="plano" data-plano>
+      <button class="plano__cabecalho">
+        <span class="plano__nome-preco">
+          <span class="plano__nome">&#127912; Cores</span>
+          <span class="plano__preco-mini">R$ 1.200</span>
+        </span>
+        <span class="plano__seta">&#8964;</span>
+      </button>
+      <div class="plano__corpo">
+        <div class="plano__corpo-int">
+          <p class="plano__desc">Imagens cheias de vida, afeto e espontaneidade.</p>
+          <ul class="plano__itens">
+            <li>Até 4h de cobertura de todas as brincadeiras e sorrisos</li>
+            <li>Entrega mínima de 250 fotos</li>
+            <li>Fotos com a família e detalhes garantidos — chegada de 15 min antes da festa</li>
+          </ul>
+          <div class="plano__notas">
+            <p>Álbum e vídeo disponíveis nos Planos Memórias e Movimento</p>
+          </div>
+          <p class="plano__parcelamento"><strong>R$ 1.200</strong>ou 10&times; de R$ 150 no cartão</p>
+          <a class="plano__cta" href="https://wa.me/5511944584666?text=Ol%C3%A1%2C%20Andr%C3%A9%21%0AVi%20a%20sua%20proposta%20e%20adorei%20o%20plano%20Cores.%20Quero%20saber%20se%20voc%C3%AA%20ainda%20tem%20disponibilidade%20para%20a%20minha%20data%21">Quero esse</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="plano plano--top aberto" data-plano>
+      <span class="plano__selo">&#10022; Preferido pelos pais</span>
+      <button class="plano__cabecalho">
+        <span class="plano__nome-preco">
+          <span class="plano__nome">&#128214; Memórias</span>
+          <span class="plano__preco-mini">R$ 2.480</span>
+        </span>
+        <span class="plano__seta">&#8964;</span>
+      </button>
+      <div class="plano__corpo">
+        <div class="plano__corpo-int">
+          <p class="plano__desc">Feito para tocar, folhear e reviver.</p>
+          <ul class="plano__itens">
+            <li>Até 4h de cobertura de todas as brincadeiras e sorrisos</li>
+            <li>Entrega mínima de 250 fotos</li>
+            <li>Fotos com a família e detalhes garantidos — chegada de 15 min antes da festa</li>
+            <li>Álbum 30x20 com até 60 fotos e 20 páginas</li>
+            <li>Capa personalizada</li>
+            <li>Páginas rígidas e acabamento profissional com estojo protetor</li>
+          </ul>
+          <div class="plano__notas">
+            <p>Vídeo disponível no Plano Movimento</p>
+          </div>
+          <p class="plano__parcelamento"><strong>R$ 2.480</strong>ou 10&times; de R$ 278 no cartão</p>
+          <a class="plano__cta" href="https://wa.me/5511944584666?text=Ol%C3%A1%2C%20Andr%C3%A9%21%0AFiquei%20encantada%20pelo%20plano%20Mem%C3%B3ria%20%28j%C3%A1%20pensando%20no%20%C3%A1lbum%20f%C3%ADsico%21%29.%20Como%20funciona%20para%20garantir%20a%20minha%20data%3F">Quero esse</a>
+          <a class="plano__cta-secundario" href="https://andrevitor.com/albuns" target="_blank" rel="noopener">Conhecer o álbum</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="plano" data-plano>
+      <button class="plano__cabecalho">
+        <span class="plano__nome-preco">
+          <span class="plano__nome">&#127916; Movimento</span>
+          <span class="plano__preco-mini">R$ 2.300</span>
+        </span>
+        <span class="plano__seta">&#8964;</span>
+      </button>
+      <div class="plano__corpo">
+        <div class="plano__corpo-int">
+          <p class="plano__desc">Toda festa tem uma história. Aqui, ela vira filme.</p>
+          <ul class="plano__itens">
+            <li>Até 4h de cobertura de todas as brincadeiras e sorrisos</li>
+            <li>Entrega mínima de 250 fotos</li>
+            <li>Fotos com a família e detalhes garantidos — chegada de 15 min antes da festa</li>
+            <li>Videoclipe com todos os momentos da festa</li>
+            <li>Trilha sonora selecionada junto com vocês</li>
+          </ul>
+          <div class="plano__notas">
+            <p>Álbum disponível no Plano Memórias</p>
+            <p>Para garantir a máxima qualidade em cada detalhe, a cobertura fotográfica é realizada por mim e a captação dos vídeos é feita por um videomaker parceiro especialista.</p>
+          </div>
+          <p class="plano__parcelamento"><strong>R$ 2.300</strong>ou 10&times; de R$ 260 no cartão</p>
+          <a class="plano__cta" href="https://wa.me/5511944584666?text=Ol%C3%A1%2C%20Andr%C3%A9%21%20Quero%20registrar%20a%20festa%20do%20meu%20filho%20com%20o%20dinamismo%20do%20plano%20movimento.%20Quais%20os%20pr%C3%B3ximos%20passos%3F">Quero esse</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="passos" aria-label="Próximos passos">
+<div class="pin__fixo">
+  <div class="passos__wrap">
+    <p class="passos__tag">Como começar</p>
+    <h2 class="passos__titulo">Próximos passos</h2>
+
+    <div class="passo">
+      <div class="passo__num">1</div>
+      <div>
+        <h3 class="passo__titulo">Escolha o seu plano</h3>
+        <p class="passo__texto">Me envie uma mensagem confirmando qual dos planos faz mais sentido para a festa de vocês neste momento.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo__num">2</div>
+      <div>
+        <h3 class="passo__titulo">Assinatura do contrato</h3>
+        <p class="passo__texto">Com o plano escolhido, enviarei o contrato simples e objetivo, para garantir que tudo sairá perfeito no dia.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo__num">3</div>
+      <div>
+        <h3 class="passo__titulo">Reserva da data</h3>
+        <p class="passo__texto">Sua data fica oficialmente reservada após a assinatura do contrato e o pagamento da taxa de reserva (50% do valor). Os 50% restantes ficam para até 5 dias antes da festa.</p>
+      </div>
+    </div>
+
+    <div class="passos__aviso">&#10024; <strong>Condição especial:</strong> famílias que garantirem a data com pagamento integral via Pix na hora da reserva têm <strong>5% de desconto</strong> sobre o valor total além do desconto já aplicado no preço à vista.</div>
+  </div>
+</div>
+</section>
+
+<section class="mosaico" aria-label="Mais momentos de festa">
+  <div class="mosaico__fixo">
+  <div class="mosaico__grade">
+    <div class="mosaico__janela"><img src="assets/mos1.jpg" alt="Menina de vestido azul de planetas sorrindo" data-parallax="0.5" loading="lazy"></div>
+    <div class="mosaico__janela"><img src="assets/mos2.jpg" alt="Menina brincando com duas bolinhas azuis nos olhos" data-parallax="0.75" loading="lazy"></div>
+    <div class="mosaico__janela"><img src="assets/mos3.jpg" alt="Menino sorrindo com um brigadeiro na mão" data-parallax="0.6" loading="lazy"></div>
+    <div class="mosaico__janela"><img src="assets/mos4.jpg" alt="Menina rodando o vestido rosa na festa" data-parallax="0.85" loading="lazy"></div>
+    <div class="mosaico__janela"><img src="assets/mos5.jpg" alt="Criança entrando no túnel de pelúcia verde" data-parallax="0.55" loading="lazy"></div>
+    <div class="mosaico__janela"><img src="assets/mos6.jpg" alt="Menina de vestido branco gargalhando" data-parallax="0.8" loading="lazy"></div>
+  </div>
+  </div>
+</section>
+
+<section class="final" aria-label="Contato">
+  <div class="final__wrap">
+    <h2 class="final__titulo">Alguns dias merecem ser lembrados para sempre.</h2>
+    <p class="final__sub">Ficou com dúvidas? Quer garantir a data da festa? Vai ser uma honra fazer parte desse momento tão especial!</p>
+    <div class="final__botoes">
+      <a class="final__zap" href="https://wa.me/5511944584666?text=Ol%C3%A1%2C%20Andr%C3%A9%21%0AVi%20a%20sua%20proposta%20de%20festa%20infantil%20e%20quero%20conversar%20sobre%20a%20minha%20data%21"><svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.6.8 5 2.3 7L4 29l7.2-2.3c1.5.8 3.1 1.2 4.8 1.2 6.6 0 12-5.4 12-12S22.6 3 16 3zm5.9 16.9c-.3.8-1.5 1.5-2.4 1.7-.6.1-1.4.2-4.2-.9-3.5-1.5-5.8-5-6-5.3-.2-.2-1.4-1.9-1.4-3.7s.9-2.6 1.3-3c.3-.3.7-.4 1-.4h.7c.2 0 .5 0 .8.6.3.7 1 2.5 1.1 2.7.1.2.1.4 0 .6-.1.2-.2.4-.4.6l-.6.7c-.2.2-.4.4-.2.8.2.4 1 1.7 2.2 2.7 1.5 1.4 2.8 1.8 3.2 2 .4.2.6.1.8-.1.2-.2 1-1.1 1.2-1.5.3-.4.5-.3.9-.2.4.1 2.2 1 2.6 1.2.4.2.6.3.7.5.1.2.1.9-.3 1.7z"/></svg> Entre em contato pelo WhatsApp</a>
+      <a class="final__insta" href="https://www.instagram.com/andrevitor.fotografia/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.9.9 1.4.2.4.4 1.1.4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.9.7-1.4.9-.4.2-1.1.4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.9-.9-1.4-.2-.4-.4-1.1-.4-2.2-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.9-.7 1.4-.9.4-.2 1.1-.4 2.2-.4 1.2-.1 1.6-.1 4.8-.1zm0 2c-3.1 0-3.5 0-4.7.1-1.1.1-1.5.2-1.8.3-.5.2-.8.4-1.1.7-.3.3-.5.6-.7 1.1-.1.3-.3.8-.3 1.8-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.5.3 1.8.2.5.4.8.7 1.1.3.3.6.5 1.1.7.3.1.8.3 1.8.3 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.5-.2 1.8-.3.5-.2.8-.4 1.1-.7.3-.3.5-.6.7-1.1.1-.3.3-.8.3-1.8.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.5-.3-1.8-.2-.5-.4-.8-.7-1.1-.3-.3-.6-.5-1.1-.7-.3-.1-.8-.3-1.8-.3-1.2-.1-1.6-.1-4.7-.1zm0 3.4a4.4 4.4 0 1 1 0 8.8 4.4 4.4 0 0 1 0-8.8zm0 2a2.4 2.4 0 1 0 0 4.8 2.4 2.4 0 0 0 0-4.8zm4.6-2.9a1 1 0 1 1 0 2.1 1 1 0 0 1 0-2.1z"/></svg> Me acompanhe no Instagram</a>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  const trilho = document.querySelector('.carrossel__trilho');
+  if(!trilho) return;
+  const slides = trilho.children.length;
+  const porPagina = () => 2;
+  let pagina = 0;
+  function paginas(){ return Math.ceil(slides / porPagina()); }
+  function render(){
+    trilho.style.transform = 'translateX(' + (-pagina * 100) + '%)';
+  }
+  document.querySelector('.carrossel__seta--prox').addEventListener('click', () => {
+    pagina = (pagina + 1) % paginas(); render();
+  });
+  document.querySelector('.carrossel__seta--ant').addEventListener('click', () => {
+    pagina = (pagina - 1 + paginas()) % paginas(); render();
+  });
+  window.addEventListener('resize', () => { pagina = 0; render(); });
+})();
+</script>
+<script>
+  // Parallax leve: as imagens têm 130% da altura da janela e deslizam
+  // conforme a posição da seção na tela. Desativado se o usuário
+  // preferir menos movimento.
+  const reduzir = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const imagens = document.querySelectorAll('[data-parallax]');
+  if (!reduzir && imagens.length) {
+    let ticking = false;
+    function mover() {
+      const vh = innerHeight;
+      imagens.forEach(img => {
+        const secaoFixa = img.closest('.mosaico');
+        const ref = secaoFixa || img.parentElement;
+        const r = ref.getBoundingClientRect();
+        const progresso = Math.max(-0.5, Math.min(0.5, (r.top + r.height / 2 - vh / 2) / vh));
+        const alturaBase = secaoFixa ? img.getBoundingClientRect().height : r.height;
+        const curso = alturaBase * (parseFloat(img.dataset.parallax) || 0.6);
+        img.style.transform = `translateY(${(progresso - 0.5) * curso}px)`;
+      });
+      ticking = false;
+    }
+    addEventListener('scroll', () => {
+      if (!ticking) { requestAnimationFrame(mover); ticking = true; }
+    }, { passive: true });
+    addEventListener('resize', mover);
+    mover();
+  }
+</script>
+<script>
+(function(){
+  const planos = document.querySelectorAll('.planos [data-plano]');
+  planos.forEach(plano => {
+    plano.querySelector('.plano__cabecalho').addEventListener('click', () => {
+      const jaAberto = plano.classList.contains('aberto');
+      planos.forEach(p => p.classList.remove('aberto'));
+      if(!jaAberto) plano.classList.add('aberto');
+    });
+  });
+})();
+</script>
+</body>
+</html>
