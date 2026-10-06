@@ -3,10 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Festa Infantil — Proposta 2026</title>
+<title>Festa Infantil · Proposta 2027 · André Vitor Fotografia</title>
+<meta name="description" content="Fotografia afetiva e espontânea de festas infantis em São Paulo. Conheça os planos e garanta a sua data.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Festa Infantil · Proposta 2027 · André Vitor Fotografia">
+<meta property="og:description" content="Menos pose. Mais brincadeira. Conheça os planos e garanta a data da festa.">
+<!-- og:image precisa de endereço completo (https://...) para aparecer na prévia do WhatsApp -->
+<meta property="og:image" content="assets/hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Bricolage+Grotesque:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
   @font-face{
@@ -32,7 +38,7 @@
     font-display:swap;
   }
   @font-face{
-    font-family:'Nunito';
+    font-family:'Figtree';
     src:url('assets/figtree.woff2') format('woff2');
     font-weight:300 900; font-display:swap;
   }
@@ -53,7 +59,7 @@
   *{ margin:0; padding:0; box-sizing:border-box; }
   html{ scroll-behavior:smooth; }
   body{
-    font-family:'Nunito', sans-serif;
+    font-family:'Figtree', sans-serif;
     background:var(--glace);
     color:var(--grafite);
     -webkit-font-smoothing:antialiased;
@@ -246,7 +252,7 @@
     align-items:center;
   }
   .chamada__tag{
-    font-family:'Nunito', sans-serif;
+    font-family:'Figtree', sans-serif;
     font-size:.78rem;
     letter-spacing:.28em;
     text-transform:uppercase;
@@ -276,7 +282,7 @@
   }
   .chamada__cta{
     display:inline-block;
-    font-family:'Nunito', sans-serif;
+    font-family:'Figtree', sans-serif;
     font-size:.85rem;
     letter-spacing:.22em;
     text-transform:uppercase;
@@ -384,7 +390,7 @@
     margin-bottom:1.8rem;
   }
   .depoimento__texto{
-    font-family:'Nunito', sans-serif;
+    font-family:'Figtree', sans-serif;
     font-weight:400;
     font-size:1rem;
     line-height:1.7;
@@ -392,7 +398,7 @@
     margin:0 0 1.6rem;
   }
   .depoimento__nome{
-    font-family:'Nunito', sans-serif;
+    font-family:'Figtree', sans-serif;
     font-size:1.02rem;
     color:#8B6A52;
     margin-top:auto;
@@ -416,7 +422,7 @@
     margin:0 0 2rem;
   }
   .diferenciais__intro{
-    font-family:'Nunito', sans-serif;
+    font-family:'Figtree', sans-serif;
     font-weight:400;
     font-size:clamp(1rem,2vw,1.15rem);
     line-height:1.75;
@@ -432,7 +438,7 @@
     padding:2.4rem 2.6rem;
   }
   .diferenciais__texto{
-    font-family:'Nunito', sans-serif;
+    font-family:'Figtree', sans-serif;
     font-weight:400;
     font-size:1.05rem;
     line-height:1.75;
@@ -440,12 +446,12 @@
     margin:0 0 1.4rem;
   }
   .diferenciais__nome{
-    font-family:'Nunito', sans-serif;
+    font-family:'Figtree', sans-serif;
     font-size:1.02rem;
     color:#8B6A52;
   }
 
-  /* ============ PLANOS (redesign: Bricolage Grotesque + Nunito) ============ */
+  /* ============ PLANOS (redesign: Bricolage Grotesque + Figtree) ============ */
   .planos{
     --pl-creme:      #F2E9DF;
     --pl-marrom-esc: #3A2216;
@@ -469,7 +475,7 @@
     margin:0 0 .5rem;
   }
   .planos__subtitulo{
-    font-family:'Nunito', sans-serif;
+    font-family:'Figtree', sans-serif;
     font-size:.92rem;
     font-weight:500;
     color:var(--pl-marrom-med);
@@ -498,7 +504,7 @@
     top:-.7rem; left:1.5rem;
     background:var(--pl-ambar);
     color:var(--pl-creme);
-    font-family:'Nunito', sans-serif;
+    font-family:'Figtree', sans-serif;
     font-size:.6rem;
     font-weight:700;
     letter-spacing:.05em;
@@ -527,7 +533,7 @@
     display:flex; align-items:center; gap:.4rem;
   }
   .plano__preco-mini{
-    font-family:'Nunito', sans-serif;
+    font-family:'Figtree', sans-serif;
     font-size:.85rem;
     font-weight:700;
     color:var(--pl-marrom-med);
@@ -546,7 +552,7 @@
     overflow:hidden;
     transition:max-height .45s cubic-bezier(.4,0,.2,1);
   }
-  .plano.aberto .plano__corpo{ max-height:640px; }
+  .plano.aberto .plano__corpo{ max-height:1000px; }
   .plano__corpo-int{
     padding:0 1.3rem 1.4rem;
     opacity:0;
@@ -559,7 +565,7 @@
   }
 
   .plano__desc{
-    font-family:'Nunito', sans-serif;
+    font-family:'Figtree', sans-serif;
     font-size:.88rem;
     font-weight:500;
     color:var(--pl-marrom-med);
@@ -570,7 +576,7 @@
 
   .plano__itens{ list-style:none; margin-bottom:.2rem; padding:0; }
   .plano__itens li{
-    font-family:'Nunito', sans-serif;
+    font-family:'Figtree', sans-serif;
     font-size:.88rem;
     font-weight:500;
     line-height:1.5;
@@ -590,7 +596,7 @@
 
   .plano__notas{ margin:.7rem 0 1.2rem; }
   .plano__notas p{
-    font-family:'Nunito', sans-serif;
+    font-family:'Figtree', sans-serif;
     font-size:.7rem;
     font-style:italic;
     font-weight:400;
@@ -601,7 +607,7 @@
   .plano__notas p:last-child{ margin-bottom:0; }
 
   .plano__parcelamento{
-    font-family:'Nunito', sans-serif;
+    font-family:'Figtree', sans-serif;
     font-size:.82rem;
     font-weight:500;
     color:var(--pl-cinza-q);
@@ -619,7 +625,7 @@
 
   .plano__cta{
     display:flex; align-items:center; justify-content:center;
-    font-family:'Nunito', sans-serif;
+    font-family:'Figtree', sans-serif;
     font-weight:700;
     font-size:.95rem;
     text-decoration:none;
@@ -633,7 +639,7 @@
   .plano__cta:active{ opacity:.85; }
   .plano__cta-secundario{
     display:flex; align-items:center; justify-content:center;
-    font-family:'Nunito', sans-serif;
+    font-family:'Figtree', sans-serif;
     font-weight:700;
     font-size:.88rem;
     text-decoration:none;
@@ -673,13 +679,13 @@
   .passo__num{
     width:84px; height:84px; border-radius:50%;
     display:flex; align-items:center; justify-content:center;
-    font-family:'Nunito', sans-serif; font-size:1.15rem; font-weight:500;
+    font-family:'Figtree', sans-serif; font-size:1.15rem; font-weight:500;
   }
   .passo:nth-child(3) .passo__num{ background:#F0E3CB; color:#B88A42; }
   .passo:nth-child(4) .passo__num{ background:#F0E3CB; color:#8B6A52; }
   .passo:nth-child(5) .passo__num{ background:#F0E3CB; color:#C8882A; }
   .passo__titulo{
-    font-family:'Nunito', sans-serif; font-weight:700;
+    font-family:'Figtree', sans-serif; font-weight:700;
     font-size:1.25rem; color:var(--grafite);
     margin:.4rem 0 .7rem;
   }
@@ -748,7 +754,7 @@
   .final__botoes{ display:flex; flex-direction:column; gap:1rem; align-items:flex-start; }
   .final__zap{
     display:inline-flex; align-items:center; gap:.6rem;
-    font-family:'Nunito', sans-serif; font-size:1rem; font-weight:700;
+    font-family:'Figtree', sans-serif; font-size:1rem; font-weight:700;
     text-decoration:none;
     background:var(--morango); color:#fff;
     padding:1.05rem 2.2rem; border-radius:999px;
@@ -757,7 +763,7 @@
   .final__zap:hover{ opacity:.88; }
   .final__insta{
     display:inline-flex; align-items:center; gap:.6rem;
-    font-family:'Nunito', sans-serif; font-size:.98rem; font-weight:400;
+    font-family:'Figtree', sans-serif; font-size:.98rem; font-weight:400;
     text-decoration:none;
     color:#F2E9DF;
     border:1.5px solid rgba(242,233,223,.5);
@@ -1032,7 +1038,7 @@
         <source type="image/webp" srcset="assets/logo-anim.webp">
         <img class="hero__logo" src="assets/logo-poster.png" alt="">
       </picture>
-      <p class="hero__proposta">proposta &middot; 2026</p>
+      <p class="hero__proposta">proposta &middot; 2027</p>
       <h1 class="hero__titulo">
         <span class="festa">festa</span>
         <span class="infantil">infantil</span>
@@ -1169,7 +1175,7 @@
       <button class="plano__cabecalho">
         <span class="plano__nome-preco">
           <span class="plano__nome">&#127912; Cores</span>
-          <span class="plano__preco-mini">R$ 1.200</span>
+          <span class="plano__preco-mini">R$ 1.200 no Pix</span>
         </span>
         <span class="plano__seta">&#8964;</span>
       </button>
@@ -1180,12 +1186,42 @@
             <li>Até 4h de cobertura de todas as brincadeiras e sorrisos</li>
             <li>Entrega mínima de 250 fotos</li>
             <li>Fotos com a família e detalhes garantidos — chegada de 15 min antes da festa</li>
+            <li>Entrega: fotos em até 10 dias úteis após a festa</li>
           </ul>
           <div class="plano__notas">
-            <p>Álbum e vídeo disponíveis nos Planos Memórias e Movimento</p>
+            <p>Álbum e vídeo disponíveis nos planos abaixo</p>
           </div>
-          <p class="plano__parcelamento"><strong>R$ 1.200</strong>ou 10&times; de R$ 150 no cartão</p>
-          <a class="plano__cta" href="https://wa.me/5511944584666?text=Ol%C3%A1%2C%20Andr%C3%A9%21%0AVi%20a%20sua%20proposta%20e%20adorei%20o%20plano%20Cores.%20Quero%20saber%20se%20voc%C3%AA%20ainda%20tem%20disponibilidade%20para%20a%20minha%20data%21">Quero esse</a>
+          <p class="plano__parcelamento"><strong>R$ 1.200 no Pix</strong>ou 10&times; de R$ 142 no cartão (total R$ 1.420)</p>
+          <a class="plano__cta" href="https://wa.me/5511944584666?text=Ol%C3%A1%2C%20Andr%C3%A9%21%0AVi%20a%20sua%20proposta%20e%20gostei%20do%20plano%20Cores.%20Voc%C3%AA%20ainda%20tem%20disponibilidade%20para%20a%20minha%20data%3F">Quero esse</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="plano" data-plano>
+      <button class="plano__cabecalho">
+        <span class="plano__nome-preco">
+          <span class="plano__nome">&#127916; Movimento</span>
+          <span class="plano__preco-mini">R$ 2.300 no Pix</span>
+        </span>
+        <span class="plano__seta">&#8964;</span>
+      </button>
+      <div class="plano__corpo">
+        <div class="plano__corpo-int">
+          <p class="plano__desc">Toda festa tem uma história. Aqui, ela vira filme.</p>
+          <ul class="plano__itens">
+            <li>Até 4h de cobertura de todas as brincadeiras e sorrisos</li>
+            <li>Entrega mínima de 250 fotos</li>
+            <li>Fotos com a família e detalhes garantidos — chegada de 15 min antes da festa</li>
+            <li>Videoclipe com todos os momentos da festa</li>
+            <li>Trilha sonora selecionada junto com vocês</li>
+            <li>Entrega: fotos em até 10 dias úteis · vídeo em até 30 dias úteis após a festa</li>
+          </ul>
+          <div class="plano__notas">
+            <p>Álbum disponível nos planos Memórias e Completo</p>
+            <p>Para garantir a máxima qualidade em cada detalhe, a cobertura fotográfica é realizada por mim e a captação dos vídeos é feita por um videomaker parceiro especialista.</p>
+          </div>
+          <p class="plano__parcelamento"><strong>R$ 2.300 no Pix</strong>ou 10&times; de R$ 271 no cartão (total R$ 2.710)</p>
+          <a class="plano__cta" href="https://wa.me/5511944584666?text=Ol%C3%A1%2C%20Andr%C3%A9%21%0AVi%20a%20sua%20proposta%20e%20gostei%20do%20plano%20Movimento.%20Quais%20s%C3%A3o%20os%20pr%C3%B3ximos%20passos%20para%20garantir%20a%20minha%20data%3F">Quero esse</a>
         </div>
       </div>
     </article>
@@ -1195,7 +1231,7 @@
       <button class="plano__cabecalho">
         <span class="plano__nome-preco">
           <span class="plano__nome">&#128214; Memórias</span>
-          <span class="plano__preco-mini">R$ 2.480</span>
+          <span class="plano__preco-mini">R$ 2.480 no Pix</span>
         </span>
         <span class="plano__seta">&#8964;</span>
       </button>
@@ -1209,12 +1245,13 @@
             <li>Álbum 30x20 com até 60 fotos e 20 páginas</li>
             <li>Capa personalizada</li>
             <li>Páginas rígidas e acabamento profissional com estojo protetor</li>
+            <li>Entrega: fotos em até 10 dias úteis · álbum em até 30 dias úteis após a seleção das fotos</li>
           </ul>
           <div class="plano__notas">
-            <p>Vídeo disponível no Plano Movimento</p>
+            <p>Vídeo disponível nos planos Movimento e Completo</p>
           </div>
-          <p class="plano__parcelamento"><strong>R$ 2.480</strong>ou 10&times; de R$ 278 no cartão</p>
-          <a class="plano__cta" href="https://wa.me/5511944584666?text=Ol%C3%A1%2C%20Andr%C3%A9%21%0AFiquei%20encantada%20pelo%20plano%20Mem%C3%B3ria%20%28j%C3%A1%20pensando%20no%20%C3%A1lbum%20f%C3%ADsico%21%29.%20Como%20funciona%20para%20garantir%20a%20minha%20data%3F">Quero esse</a>
+          <p class="plano__parcelamento"><strong>R$ 2.480 no Pix</strong>ou 10&times; de R$ 292 no cartão (total R$ 2.920)</p>
+          <a class="plano__cta" href="https://wa.me/5511944584666?text=Ol%C3%A1%2C%20Andr%C3%A9%21%0AVi%20a%20sua%20proposta%20e%20gostei%20do%20plano%20Mem%C3%B3rias%20%28j%C3%A1%20pensando%20no%20%C3%A1lbum%21%29.%20Como%20funciona%20para%20garantir%20a%20minha%20data%3F">Quero esse</a>
           <a class="plano__cta-secundario" href="https://andrevitor.com/albuns" target="_blank" rel="noopener">Conhecer o álbum</a>
         </div>
       </div>
@@ -1223,30 +1260,35 @@
     <article class="plano" data-plano>
       <button class="plano__cabecalho">
         <span class="plano__nome-preco">
-          <span class="plano__nome">&#127916; Movimento</span>
-          <span class="plano__preco-mini">R$ 2.300</span>
+          <span class="plano__nome">&#10024; Completo</span>
+          <span class="plano__preco-mini">R$ 3.580 no Pix</span>
         </span>
         <span class="plano__seta">&#8964;</span>
       </button>
       <div class="plano__corpo">
         <div class="plano__corpo-int">
-          <p class="plano__desc">Toda festa tem uma história. Aqui, ela vira filme.</p>
+          <p class="plano__desc">Fotos, álbum e filme: a festa inteira, para sempre.</p>
           <ul class="plano__itens">
             <li>Até 4h de cobertura de todas as brincadeiras e sorrisos</li>
             <li>Entrega mínima de 250 fotos</li>
             <li>Fotos com a família e detalhes garantidos — chegada de 15 min antes da festa</li>
+            <li>Álbum 30x20 com até 60 fotos e 20 páginas</li>
+            <li>Capa personalizada</li>
+            <li>Páginas rígidas e acabamento profissional com estojo protetor</li>
             <li>Videoclipe com todos os momentos da festa</li>
             <li>Trilha sonora selecionada junto com vocês</li>
+            <li>Entrega: fotos em até 10 dias úteis · vídeo em até 30 dias úteis · álbum em até 30 dias úteis após a seleção das fotos</li>
           </ul>
           <div class="plano__notas">
-            <p>Álbum disponível no Plano Memórias</p>
             <p>Para garantir a máxima qualidade em cada detalhe, a cobertura fotográfica é realizada por mim e a captação dos vídeos é feita por um videomaker parceiro especialista.</p>
           </div>
-          <p class="plano__parcelamento"><strong>R$ 2.300</strong>ou 10&times; de R$ 260 no cartão</p>
-          <a class="plano__cta" href="https://wa.me/5511944584666?text=Ol%C3%A1%2C%20Andr%C3%A9%21%20Quero%20registrar%20a%20festa%20do%20meu%20filho%20com%20o%20dinamismo%20do%20plano%20movimento.%20Quais%20os%20pr%C3%B3ximos%20passos%3F">Quero esse</a>
+          <p class="plano__parcelamento"><strong>R$ 3.580 no Pix</strong>ou 10&times; de R$ 422 no cartão (total R$ 4.220)</p>
+          <a class="plano__cta" href="https://wa.me/5511944584666?text=Ol%C3%A1%2C%20Andr%C3%A9%21%0AVi%20a%20sua%20proposta%20e%20quero%20o%20plano%20Completo%2C%20com%20fotos%2C%20%C3%A1lbum%20e%20v%C3%ADdeo.%20Voc%C3%AA%20ainda%20tem%20disponibilidade%20para%20a%20minha%20data%3F">Quero esse</a>
+          <a class="plano__cta-secundario" href="https://andrevitor.com/albuns" target="_blank" rel="noopener">Conhecer o álbum</a>
         </div>
       </div>
     </article>
+
   </div>
 </section>
 
@@ -1280,7 +1322,7 @@
       </div>
     </div>
 
-    <div class="passos__aviso">&#10024; <strong>Condição especial:</strong> famílias que garantirem a data com pagamento integral via Pix na hora da reserva têm <strong>5% de desconto</strong> sobre o valor total além do desconto já aplicado no preço à vista.</div>
+    <div class="passos__aviso">&#10024; <strong>Condição especial:</strong> pagando o valor integral via Pix na reserva, você tem <strong>5% de desconto</strong> sobre o valor no Pix.</div>
   </div>
 </div>
 </section>
