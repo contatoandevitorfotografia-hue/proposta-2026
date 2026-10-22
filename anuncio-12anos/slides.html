@@ -62,8 +62,19 @@
   .preco .por small{ font-size:40px; font-weight:700; letter-spacing:0; }
   .preco .cartao{ font-weight:500; font-size:32px; color:var(--cacau); margin-top:12px; }
   .preco .inclui{ font-weight:600; font-size:30px; color:var(--marrom); margin-top:26px; padding-top:24px; border-top:2px solid #E5D9C6; }
-  .lista{ list-style:none; margin-top:44px; }
-  .lista li{ position:relative; padding-left:56px; font-weight:500; font-size:36px; line-height:1.3; margin-bottom:24px; }
+  .tabela{ margin-top:34px; background:var(--creme-2); border:2px solid var(--caramelo); border-radius:32px; padding:14px 40px; }
+  .cab, .linha-p{ display:grid; grid-template-columns:1.25fr 1.1fr .9fr; align-items:center; }
+  .cab{ font-weight:700; font-size:22px; letter-spacing:.18em; text-transform:uppercase; color:var(--cacau); padding:16px 0 12px; }
+  .cab span:not(:first-child), .linha-p span:not(:first-child){ text-align:right; }
+  .linha-p{ padding:20px 0; border-top:2px solid #E5D9C6; }
+  .nome{ font-weight:800; font-size:38px; }
+  .nome em{ display:block; font-style:normal; font-weight:700; font-size:20px; letter-spacing:.14em; text-transform:uppercase; color:var(--ambar); margin-top:4px; }
+  .pix{ font-weight:800; font-size:40px; letter-spacing:-.01em; }
+  .pix s{ display:block; font-weight:500; font-size:24px; color:var(--cacau); text-decoration-thickness:2px; }
+  .parc{ font-weight:600; font-size:30px; color:var(--cacau); }
+  .linha-p.top .pix{ color:var(--ambar); }
+  .lista{ list-style:none; margin-top:40px; }
+  .lista li{ position:relative; padding-left:56px; font-weight:500; font-size:32px; line-height:1.3; margin-bottom:16px; }
   .lista li::before{ content:'✓'; position:absolute; left:0; top:0; font-weight:800; color:var(--ambar); }
   .lista li strong{ font-weight:800; }
 
@@ -96,7 +107,7 @@
       <span class="numero">12%</span>
       <p>de desconto nas 12 primeiras festas fechadas</p>
     </div>
-    <span class="selo">no Plano Cores</span>
+    <span class="selo">em todos os planos</span>
     <p class="prazo">até 30/11 ou enquanto houver vagas</p>
   </div>
   <div class="rodape"><span>André Vitor · Fotografia</span><span>1/3</span></div>
@@ -106,12 +117,28 @@
 <section class="slide regras" id="s2">
   <div class="texto">
     <p class="kicker">Como funciona</p>
-    <div class="preco">
-      <p class="plano">Plano Cores</p>
-      <p class="de">de <s>R$ 1.200</s> por</p>
-      <p class="por">R$ 1.056 <small>no Pix</small></p>
-      <p class="cartao">ou 10× de R$ 125 no cartão</p>
-      <p class="inclui">Até 4h de festa · mínimo de 250 fotos</p>
+    <div class="tabela">
+      <div class="cab"><span>Plano</span><span>No Pix</span><span>No cartão</span></div>
+      <div class="linha-p">
+        <span class="nome">Cores</span>
+        <span class="pix"><s>R$ 1.200</s>R$ 1.056</span>
+        <span class="parc">10× R$ 125</span>
+      </div>
+      <div class="linha-p">
+        <span class="nome">Movimento</span>
+        <span class="pix"><s>R$ 2.300</s>R$ 2.024</span>
+        <span class="parc">10× R$ 239</span>
+      </div>
+      <div class="linha-p top">
+        <span class="nome">Memórias<em>mais escolhido</em></span>
+        <span class="pix"><s>R$ 2.480</s>R$ 2.182</span>
+        <span class="parc">10× R$ 257</span>
+      </div>
+      <div class="linha-p">
+        <span class="nome">Completo</span>
+        <span class="pix"><s>R$ 3.580</s>R$ 3.150</span>
+        <span class="parc">10× R$ 371</span>
+      </div>
     </div>
     <ul class="lista">
       <li>Vale para as <strong>12 primeiras festas fechadas</strong> (contrato assinado e sinal pago)</li>
