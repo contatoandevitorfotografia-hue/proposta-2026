@@ -5,7 +5,7 @@
 <title>Anúncio · 12 anos de fotografia · Carrossel</title>
 <!--
   Promoção de 12 anos (1080×1350, 4:5). Mesmo sistema visual do carrossel de festa infantil.
-  Para trocar a foto do slide 3: substitua fotos/foto-crianca.jpg mantendo o nome e rode: node exportar.js
+  Para trocar as fotos do slide 3: substitua fotos/foto-crianca.jpg e fotos/foto-andre.jpg mantendo os nomes e rode: node exportar.js
 -->
 <style>
   @font-face{ font-family:'Figtree'; src:url('../anuncio-festa/fontes/figtree-400.ttf'); font-weight:400; }
@@ -88,8 +88,15 @@
   .bolinhas i.fechada{ background:none; border:3px solid var(--caramelo); }
 
   /* ---------- 3: CTA ---------- */
-  .cta .foto{ height:620px; }
-  .cta .texto{ top:724px; }
+  .cta .foto{ height:560px; }
+  .cta .texto{ top:770px; }
+  .retrato{
+    position:absolute; left:84px; top:500px; width:210px; height:210px; border-radius:50%;
+    overflow:hidden; border:8px solid var(--creme); box-shadow:0 10px 28px rgba(58,34,22,.25);
+  }
+  .retrato img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .assina{ position:absolute; left:316px; top:640px; font-weight:700; font-size:28px; color:var(--cacau); line-height:1.25; }
+  .assina strong{ display:block; font-weight:800; font-size:34px; color:var(--marrom); }
   .cta .titulo em{ font-style:normal; color:var(--ambar); }
   .botao{
     display:inline-flex; align-items:center; gap:18px; margin-top:36px;
@@ -158,12 +165,13 @@
 <!-- 3 · CTA -->
 <section class="slide cta" id="s3">
   <div class="foto"><img src="fotos/foto-crianca.jpg" style="--pos:50% 22%" alt=""></div>
+  <div class="retrato"><img src="fotos/foto-andre.jpg" alt=""></div>
+  <p class="assina"><strong>André Vitor</strong>fotógrafo de festas infantis · São Paulo</p>
   <div class="texto">
     <h2 class="titulo">12 anos. Mais de 1.000 festas. <em>A próxima pode ser a do seu filho.</em></h2>
     <p class="sub">Me manda a data da sua festa que eu te digo se ainda está livre.</p>
     <span class="botao"><svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.6.8 5 2.3 7L4 29l7.2-2.3c1.5.8 3.1 1.2 4.8 1.2 6.6 0 12-5.4 12-12S22.6 3 16 3zm5.9 16.9c-.3.8-1.5 1.5-2.4 1.7-.6.1-1.4.2-4.2-.9-3.5-1.5-5.8-5-6-5.3-.2-.2-1.4-1.9-1.4-3.7s.9-2.6 1.3-3c.3-.3.7-.4 1-.4h.7c.2 0 .5 0 .8.6.3.7 1 2.5 1.1 2.7.1.2.1.4 0 .6-.1.2-.2.4-.4.6l-.6.7c-.2.2-.4.4-.2.8.2.4 1 1.7 2.2 2.7 1.5 1.4 2.8 1.8 3.2 2 .4.2.6.1.8-.1.2-.2 1-1.1 1.2-1.5.3-.4.5-.3.9-.2.4.1 2.2 1 2.6 1.2.4.2.6.3.7.5.1.2.1.9-.3 1.7z"/></svg>Chamar no WhatsApp</span>
   </div>
-  <div class="rodape"><span>André Vitor · Fotografia</span><span>São Paulo</span></div>
 </section>
 
 </body>

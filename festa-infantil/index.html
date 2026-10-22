@@ -483,6 +483,14 @@
     margin:0 0 1.8rem;
   }
 
+  /* faixa temporária da promoção de 12 anos: remover em 01/12 (CSS + bloco .promo no HTML) */
+  .promo{
+    background:var(--pl-marrom-esc); color:var(--pl-creme);
+    border-radius:18px; padding:1rem 1.2rem; margin:0 0 1.6rem;
+    font-family:'Figtree', sans-serif; font-size:.9rem; line-height:1.5; text-align:center;
+  }
+  .promo strong{ color:#E9B865; }
+
   .plano{
     position:relative;
     border-radius:22px;
@@ -1170,6 +1178,8 @@
   <div class="planos__miolo">
     <h2 class="planos__titulo">Nossos Planos</h2>
     <p class="planos__subtitulo">Toque em um plano para conhecer tudo o que ele inclui</p>
+    <!-- faixa temporária: remover em 01/12 -->
+    <p class="promo">&#127881; <strong>12 anos de fotografia:</strong> 12% de desconto em todos os planos para as 12 primeiras festas fechadas, até 30/11. O desconto é aplicado no contrato.</p>
 
     <article class="plano" data-plano>
       <button class="plano__cabecalho">
