@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Anúncio · 12 anos de fotografia · Carrossel</title>
+<!--
+  Promoção de 12 anos (1080×1350, 4:5). Mesmo sistema visual do carrossel de festa infantil.
+  Para trocar as fotos: substitua os arquivos em fotos/ mantendo os nomes e rode: node exportar.js
+-->
+<style>
+  @font-face{ font-family:'Figtree'; src:url('../anuncio-festa/fontes/figtree-400.ttf'); font-weight:400; }
+  @font-face{ font-family:'Figtree'; src:url('../anuncio-festa/fontes/figtree-500.ttf'); font-weight:500; }
+  @font-face{ font-family:'Figtree'; src:url('../anuncio-festa/fontes/figtree-700.ttf'); font-weight:700; }
+  @font-face{ font-family:'Figtree'; src:url('../anuncio-festa/fontes/figtree-800.ttf'); font-weight:800; }
+  @font-face{ font-family:'Fraunces'; src:url('../anuncio-festa/fontes/fraunces-italic.ttf'); font-style:italic; font-weight:400; }
+
+  :root{
+    --creme:#F2E9DF; --creme-2:#FBF7F0;
+    --marrom:#3A2216; --cacau:#8B6A52; --ambar:#C8882A; --ambar-cl:#E9B865; --caramelo:#C4A880;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  body{ background:#ccc; font-family:'Figtree',sans-serif; display:flex; flex-wrap:wrap; gap:40px; padding:40px; }
+
+  .slide{ position:relative; width:1080px; height:1350px; overflow:hidden; background:var(--creme); color:var(--marrom); }
+  .foto{ position:absolute; left:56px; right:56px; top:56px; border-radius:32px; overflow:hidden; }
+  .foto img{ width:100%; height:100%; object-fit:cover; object-position:var(--pos,50% 35%); display:block; }
+  .texto{ position:absolute; left:84px; right:84px; }
+  .kicker{ font-weight:700; font-size:30px; letter-spacing:.22em; text-transform:uppercase; color:var(--ambar); }
+  .titulo{ font-weight:800; font-size:76px; line-height:1.04; letter-spacing:-.02em; }
+  .sub{ font-weight:500; font-size:38px; line-height:1.3; color:var(--cacau); margin-top:22px; }
+  .rodape{
+    position:absolute; left:84px; right:84px; bottom:48px;
+    display:flex; justify-content:space-between; align-items:center;
+    font-weight:700; font-size:22px; letter-spacing:.26em; text-transform:uppercase; color:var(--cacau);
+  }
+
+  /* ---------- 1: oferta (fundo escuro, de comemoração) ---------- */
+  .oferta{ background:var(--marrom); color:var(--creme); }
+  .oferta .foto{ height:560px; }
+  .oferta .texto{ top:660px; }
+  .oferta .kicker{ color:var(--caramelo); }
+  .oferta .rodape{ color:var(--caramelo); }
+  .bloco{ display:flex; align-items:center; gap:36px; margin-top:22px; }
+  .numero{ font-weight:800; font-size:250px; line-height:.86; letter-spacing:-.05em; color:var(--ambar-cl); }
+  .bloco p{ font-weight:700; font-size:50px; line-height:1.12; }
+  .selo{
+    display:inline-block; margin-top:34px; padding:14px 30px; border-radius:999px;
+    background:var(--creme); color:var(--marrom); font-weight:800; font-size:36px;
+  }
+  .prazo{ font-family:'Fraunces',serif; font-style:italic; font-size:38px; color:var(--caramelo); margin-top:26px; }
+
+  /* ---------- 2: regras ---------- */
+  .regras .texto{ top:96px; }
+  .preco{
+    margin-top:40px; background:var(--creme-2); border:2px solid var(--caramelo); border-radius:32px;
+    padding:44px 48px;
+  }
+  .preco .plano{ font-weight:800; font-size:34px; letter-spacing:.16em; text-transform:uppercase; color:var(--ambar); }
+  .preco .de{ font-weight:500; font-size:36px; color:var(--cacau); margin-top:18px; }
+  .preco .de s{ text-decoration-thickness:3px; }
+  .preco .por{ font-weight:800; font-size:92px; letter-spacing:-.03em; line-height:1; margin-top:6px; }
+  .preco .por small{ font-size:40px; font-weight:700; letter-spacing:0; }
+  .preco .cartao{ font-weight:500; font-size:32px; color:var(--cacau); margin-top:12px; }
+  .preco .inclui{ font-weight:600; font-size:30px; color:var(--marrom); margin-top:26px; padding-top:24px; border-top:2px solid #E5D9C6; }
+  .lista{ list-style:none; margin-top:44px; }
+  .lista li{ position:relative; padding-left:56px; font-weight:500; font-size:36px; line-height:1.3; margin-bottom:24px; }
+  .lista li::before{ content:'✓'; position:absolute; left:0; top:0; font-weight:800; color:var(--ambar); }
+  .lista li strong{ font-weight:800; }
+
+  .vagas{ margin-top:30px; padding-top:34px; border-top:2px solid #E5D9C6; }
+  .vagas p{ font-weight:700; font-size:30px; letter-spacing:.16em; text-transform:uppercase; color:var(--cacau); }
+  .vagas p strong{ color:var(--marrom); }
+  .bolinhas{ display:flex; gap:18px; margin-top:20px; }
+  .bolinhas i{ width:56px; height:56px; border-radius:50%; background:var(--ambar); }
+  .bolinhas i.fechada{ background:none; border:3px solid var(--caramelo); }
+
+  /* ---------- 3: CTA ---------- */
+  .cta .foto{ height:620px; }
+  .cta .texto{ top:724px; }
+  .cta .titulo em{ font-style:normal; color:var(--ambar); }
+  .botao{
+    display:inline-flex; align-items:center; gap:18px; margin-top:36px;
+    background:var(--ambar); color:#fff; border-radius:999px; padding:24px 40px; font-weight:800; font-size:36px;
+  }
+  .botao svg{ width:42px; height:42px; fill:#fff; }
+</style>
+</head>
+<body>
+
+<!-- 1 · OFERTA -->
+<section class="slide oferta" id="s1">
+  <div class="foto"><img src="fotos/foto-andre.jpg" style="--pos:50% 30%" alt=""></div>
+  <div class="texto">
+    <p class="kicker">12 anos de fotografia</p>
+    <div class="bloco">
+      <span class="numero">12%</span>
+      <p>de desconto nas 12 primeiras festas fechadas</p>
+    </div>
+    <span class="selo">no Plano Cores</span>
+    <p class="prazo">até 30/11 ou enquanto houver vagas</p>
+  </div>
+  <div class="rodape"><span>André Vitor · Fotografia</span><span>1/3</span></div>
+</section>
+
+<!-- 2 · COMO FUNCIONA -->
+<section class="slide regras" id="s2">
+  <div class="texto">
+    <p class="kicker">Como funciona</p>
+    <div class="preco">
+      <p class="plano">Plano Cores</p>
+      <p class="de">de <s>R$ 1.200</s> por</p>
+      <p class="por">R$ 1.056 <small>no Pix</small></p>
+      <p class="cartao">ou 10× de R$ 125 no cartão</p>
+      <p class="inclui">Até 4h de festa · mínimo de 250 fotos</p>
+    </div>
+    <ul class="lista">
+      <li>Vale para as <strong>12 primeiras festas fechadas</strong> (contrato assinado e sinal pago)</li>
+      <li>Festas em 2026 ou 2027, em qualquer data</li>
+      <li>Até 30/11 ou enquanto houver vagas</li>
+      <li>Não acumula com outros descontos</li>
+    </ul>
+    <!-- para os stories: adicione class="fechada" em cada vaga já preenchida e atualize o número -->
+    <div class="vagas">
+      <p>Vagas disponíveis: <strong>12 de 12</strong></p>
+      <div class="bolinhas"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+  </div>
+  <div class="rodape"><span>André Vitor · Fotografia</span><span>2/3</span></div>
+</section>
+
+<!-- 3 · CTA -->
+<section class="slide cta" id="s3">
+  <div class="foto"><img src="fotos/foto-crianca.jpg" style="--pos:50% 35%" alt=""></div>
+  <div class="texto">
+    <h2 class="titulo">12 anos. Mais de 1.000 festas. <em>A próxima pode ser a do seu filho.</em></h2>
+    <p class="sub">Me manda a data da sua festa que eu te digo se ainda está livre.</p>
+    <span class="botao"><svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.6.8 5 2.3 7L4 29l7.2-2.3c1.5.8 3.1 1.2 4.8 1.2 6.6 0 12-5.4 12-12S22.6 3 16 3zm5.9 16.9c-.3.8-1.5 1.5-2.4 1.7-.6.1-1.4.2-4.2-.9-3.5-1.5-5.8-5-6-5.3-.2-.2-1.4-1.9-1.4-3.7s.9-2.6 1.3-3c.3-.3.7-.4 1-.4h.7c.2 0 .5 0 .8.6.3.7 1 2.5 1.1 2.7.1.2.1.4 0 .6-.1.2-.2.4-.4.6l-.6.7c-.2.2-.4.4-.2.8.2.4 1 1.7 2.2 2.7 1.5 1.4 2.8 1.8 3.2 2 .4.2.6.1.8-.1.2-.2 1-1.1 1.2-1.5.3-.4.5-.3.9-.2.4.1 2.2 1 2.6 1.2.4.2.6.3.7.5.1.2.1.9-.3 1.7z"/></svg>Chamar no WhatsApp</span>
+  </div>
+  <div class="rodape"><span>André Vitor · Fotografia</span><span>São Paulo</span></div>
+</section>
+
+</body>
+</html>
