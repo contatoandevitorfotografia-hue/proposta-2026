@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Reels · O menino mais sorridente do mundo · Cenas</title>
+<!--
+  Cenas do Reels (1080×1920). Cada .cena vira um PNG e o montar.sh junta tudo em MP4.
+  Zona segura do Reels: nada importante acima de 250px nem abaixo de 1500px, e longe da borda direita.
+  Para trocar uma foto: substitua o arquivo em fotos/ mantendo o nome e rode: node exportar.js && ./montar.sh
+-->
+<style>
+  @font-face{ font-family:'Figtree'; src:url('../anuncio-festa/fontes/figtree-500.ttf'); font-weight:500; }
+  @font-face{ font-family:'Figtree'; src:url('../anuncio-festa/fontes/figtree-700.ttf'); font-weight:700; }
+  @font-face{ font-family:'Figtree'; src:url('../anuncio-festa/fontes/figtree-800.ttf'); font-weight:800; }
+  @font-face{ font-family:'Fraunces'; src:url('../anuncio-festa/fontes/fraunces-italic.ttf'); font-style:italic; font-weight:400; }
+  :root{ --creme:#F2E9DF; --creme-2:#FBF7F0; --marrom:#3A2216; --cacau:#8B6A52; --ambar:#C8882A; --ambar-cl:#E9B865; --caramelo:#C4A880; }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  body{ background:#999; font-family:'Figtree',sans-serif; display:flex; flex-wrap:wrap; gap:30px; padding:30px; }
+  .cena{ position:relative; width:1080px; height:1920px; overflow:hidden; background:var(--creme); color:var(--marrom); }
+  .cena > img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:var(--pos,50% 40%); }
+
+  /* legenda sobre a foto */
+  .tag{
+    position:absolute; left:80px; bottom:500px;
+    background:var(--creme); color:var(--marrom); border-radius:28px;
+    padding:26px 40px; font-weight:800; font-size:66px; line-height:1.1;
+    box-shadow:0 14px 40px rgba(58,34,22,.28);
+    display:flex; align-items:center; gap:24px;
+  }
+  .tag b{ display:inline-flex; align-items:center; justify-content:center; width:64px; height:64px; border-radius:50%; background:var(--ambar); color:#fff; font-size:40px; }
+  .tag.longa{ right:120px; font-size:60px; display:block; }
+
+  /* 1 · formulário */
+  .form{ padding:300px 80px 0; }
+  .form .chamada{ font-weight:800; font-size:76px; line-height:1.08; letter-spacing:-.02em; }
+  .ficha{ margin-top:70px; background:var(--creme-2); border:3px solid var(--caramelo); border-radius:36px; padding:56px 56px 60px; }
+  .ficha .rotulo{ font-weight:700; font-size:32px; letter-spacing:.14em; text-transform:uppercase; color:var(--ambar); }
+  .ficha .resposta{ font-weight:500; font-size:50px; line-height:1.42; margin-top:28px; }
+  .ficha mark{ background:linear-gradient(transparent 55%, rgba(233,184,101,.55) 55%); color:inherit; font-weight:800; }
+
+  /* dedinho · cartão sem foto */
+  .pausa{ background:var(--marrom); color:var(--creme); padding:680px 90px 0; }
+  .pausa p{ font-weight:800; font-size:92px; line-height:1.08; letter-spacing:-.02em; }
+  .pausa p + p{ margin-top:40px; color:var(--ambar-cl); }
+
+  /* final */
+  .final{ background:var(--creme); display:flex; flex-direction:column; justify-content:center; padding:0 90px 200px; }
+  .final h2{ font-weight:800; font-size:118px; line-height:1; letter-spacing:-.03em; }
+  .final h2 em{ font-style:normal; color:var(--ambar); display:block; }
+  .final .assina{ margin-top:70px; font-weight:700; font-size:34px; letter-spacing:.24em; text-transform:uppercase; color:var(--cacau); }
+  .final .arroba{ margin-top:16px; font-family:'Fraunces',serif; font-style:italic; font-size:48px; color:var(--marrom); }
+</style>
+</head>
+<body>
+
+<!-- 01 · formulário real (texto da mãe, sem alterações) -->
+<section class="cena form" id="c01">
+  <p class="chamada">Antes da festa, a mãe me mandou isso:</p>
+  <div class="ficha">
+    <p class="rotulo">Característica marcante ou pedido especial</p>
+    <p class="resposta">Ele é o menino mais sorridente do mundo! Eu quero lembrar disso, do <mark>sorriso fácil</mark>. Também o quanto ele ama um <mark>colinho de mamãe</mark>, ele <mark>chupando o dedinho</mark> e ele botando a <mark>linguinha pra fora</mark></p>
+  </div>
+</section>
+
+<!-- 02-03 · sorriso -->
+<section class="cena" id="c02"><img src="fotos/piscina-bolinhas.jpg" style="--pos:50% 30%"><div class="tag"><b>✓</b>o sorriso fácil</div></section>
+<section class="cena" id="c03"><img src="fotos/xilofone.jpg" style="--pos:55% 30%"><div class="tag"><b>✓</b>o sorriso fácil</div></section>
+
+<!-- 04 · colinho (confirmar se é a mãe) -->
+<section class="cena" id="c04"><img src="fotos/colinho.jpg" style="--pos:45% 30%"><div class="tag"><b>✓</b>o colinho da mamãe</div></section>
+
+<!-- 05 · linguinha -->
+<section class="cena" id="c05"><img src="fotos/linguinha.jpg" style="--pos:52% 30%"><div class="tag"><b>✓</b>a linguinha pra fora</div></section>
+
+<!-- 06-07 · dedinho: pausa em dois tempos -->
+<section class="cena pausa" id="c06"><p>o dedinho na boca…</p></section>
+<section class="cena pausa" id="c07"><p>o dedinho na boca…</p><p>não rolou nenhuma vez 😅</p></section>
+
+<!-- 08 · família -->
+<section class="cena" id="c08"><img src="fotos/familia-bolo.jpg" style="--pos:56% 50%"><div class="tag longa">Eu não forço pose. Eu registro o que acontece.</div></section>
+
+<!-- 09 · final -->
+<section class="cena final" id="c09">
+  <h2>Menos pose. <em>Mais brincadeira.</em></h2>
+  <p class="assina">André Vitor · Fotografia</p>
+  <p class="arroba">@andrevitor.fotografia</p>
+</section>
+
+</body>
+</html>
