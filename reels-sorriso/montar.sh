@@ -5,7 +5,7 @@ set -euo pipefail
 cd "$(dirname "$0")"
 FPS=30
 # cena:duração(s):zoom (1 = aproximação lenta nas fotos, 0 = parada)
-CENAS="c01:4.5:0 c02:1.0:1 c03:1.0:1 c04:1.6:1 c05:1.6:1 c06:1.2:0 c07:2.0:0 c08:2.6:1 c09:2.6:0"
+CENAS="c01:4.5:0 c02:1.0:1 c03:1.0:1 c03b:1.0:1 c04:1.6:1 c05:1.6:1 c06:1.2:0 c07:2.0:0 c08:2.6:1 c09:2.6:0"
 mkdir -p tmp && : > tmp/lista.txt
 for item in $CENAS; do
   IFS=: read -r id dur zoom <<< "$item"
