@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Carrossel · Gabriel: de convidado a aniversariante</title>
+<!--
+  Carrossel orgânico (1080×1350, 4:5). Mesmo sistema visual dos outros carrosséis.
+  Para trocar uma foto: substitua o arquivo em fotos/ mantendo o nome e rode: node exportar.js
+-->
+<style>
+  @font-face{ font-family:'Figtree'; src:url('../anuncio-festa/fontes/figtree-500.ttf'); font-weight:500; }
+  @font-face{ font-family:'Figtree'; src:url('../anuncio-festa/fontes/figtree-700.ttf'); font-weight:700; }
+  @font-face{ font-family:'Figtree'; src:url('../anuncio-festa/fontes/figtree-800.ttf'); font-weight:800; }
+  @font-face{ font-family:'Fraunces'; src:url('../anuncio-festa/fontes/fraunces-italic.ttf'); font-style:italic; font-weight:400; }
+  :root{ --creme:#F2E9DF; --creme-2:#FBF7F0; --marrom:#3A2216; --cacau:#8B6A52; --ambar:#C8882A; --ambar-cl:#E9B865; --caramelo:#C4A880; }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  body{ background:#ccc; font-family:'Figtree',sans-serif; display:flex; flex-wrap:wrap; gap:40px; padding:40px; }
+
+  .slide{ position:relative; width:1080px; height:1350px; overflow:hidden; background:var(--creme); color:var(--marrom); }
+  .foto{ position:absolute; left:56px; right:56px; top:56px; height:760px; border-radius:32px; overflow:hidden; display:flex; gap:12px; }
+  .foto img{ flex:1; min-width:0; height:100%; object-fit:cover; object-position:var(--pos,50% 35%); display:block; }
+  .texto{ position:absolute; left:84px; right:84px; top:870px; }
+  .kicker{ font-weight:700; font-size:28px; letter-spacing:.22em; text-transform:uppercase; color:var(--ambar); margin-bottom:16px; }
+  .titulo{ font-weight:800; font-size:72px; line-height:1.04; letter-spacing:-.02em; }
+  .sub{ font-weight:500; font-size:38px; line-height:1.3; color:var(--cacau); margin-top:18px; }
+  .rodape{
+    position:absolute; left:84px; right:84px; bottom:46px;
+    display:flex; justify-content:space-between; align-items:center;
+    font-weight:700; font-size:22px; letter-spacing:.26em; text-transform:uppercase; color:var(--cacau);
+  }
+
+  /* capa e foto cheia */
+  .cheia .fundo{ position:absolute; inset:0; }
+  .cheia .fundo img{ width:100%; height:100%; object-fit:cover; object-position:var(--pos,50% 30%); }
+  .cheia .fundo::after{ content:''; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(58,34,22,0) 42%, rgba(58,34,22,.6) 66%, rgba(58,34,22,.95) 100%); }
+  .cheia .texto{ top:auto; bottom:140px; color:var(--creme); }
+  .cheia .kicker{ color:var(--ambar-cl); }
+  .cheia .titulo{ font-size:100px; }
+  .cheia .destaque{ font-family:'Fraunces',serif; font-style:italic; font-size:50px; line-height:1.2; color:var(--ambar-cl); margin-top:20px; }
+  .cheia .rodape{ color:var(--caramelo); }
+  .seta{ display:inline-flex; align-items:center; gap:14px; color:var(--creme); }
+  .seta svg{ width:44px; height:20px; }
+
+  /* 3 · virada, só texto */
+  .virada{ background:var(--marrom); color:var(--creme); }
+  .virada .texto{ top:330px; }
+  .virada .kicker{ color:var(--caramelo); }
+  .virada .titulo{ font-size:96px; line-height:1.02; }
+  .virada .titulo em{ font-style:normal; color:var(--ambar-cl); display:block; margin-top:24px; }
+  .virada .reticencias{ font-family:'Fraunces',serif; font-style:italic; font-size:64px; color:var(--caramelo); margin-top:80px; }
+  .virada .rodape{ color:var(--caramelo); }
+
+  /* 6 · CTA indicação */
+  .cta .foto{ height:700px; }
+  .cta .texto{ top:792px; }
+  .cta .titulo{ font-size:56px; }
+  .cta .titulo em{ font-style:normal; color:var(--ambar); }
+  .programa{ margin-top:24px; background:var(--creme-2); border:2px solid var(--caramelo); border-radius:28px; padding:28px 36px; }
+  .programa .pergunta{ font-weight:800; font-size:32px; color:var(--ambar); }
+  .programa p{ font-weight:500; font-size:30px; line-height:1.3; margin-top:6px; }
+  .programa p strong{ font-weight:800; }
+  .programa .linha{ height:2px; background:#E5D9C6; margin:16px 0; }
+</style>
+</head>
+<body>
+
+<!-- 1 · CAPA -->
+<section class="slide cheia" id="s1">
+  <div class="fundo"><img src="fotos/convidado-maos-rosto.jpg" style="--pos:50% 25%" alt=""></div>
+  <div class="texto">
+    <p class="kicker">Indicação de mãe pra mãe</p>
+    <h1 class="titulo">O Gabriel era só convidado.</h1>
+    <p class="destaque">(mas eu fotografei ele com o mesmo cuidado do aniversariante)</p>
+  </div>
+  <div class="rodape"><span>André Vitor · Fotografia</span><span class="seta">arraste <svg viewBox="0 0 44 20"><path d="M0 10h40M32 2l8 8-8 8" fill="none" stroke="currentColor" stroke-width="3"/></svg></span></div>
+</section>
+
+<!-- 2 · CONVIDADO -->
+<section class="slide" id="s2">
+  <div class="foto">
+    <img src="fotos/convidado-gargalhada.jpg" style="--pos:40% 30%" alt="">
+    <img src="fotos/convidado-livro.jpg" style="--pos:63% 40%" alt="">
+  </div>
+  <div class="texto">
+    <p class="kicker">Na festa do amiguinho</p>
+    <h2 class="titulo">Em toda festa, cada criança é fotografada com carinho.</h2>
+    <p class="sub">Não só quem está de aniversário.</p>
+  </div>
+  <div class="rodape"><span>André Vitor · Fotografia</span><span>2/6</span></div>
+</section>
+
+<!-- 3 · VIRADA -->
+<section class="slide virada" id="s3">
+  <div class="texto">
+    <p class="kicker">Depois da festa</p>
+    <h2 class="titulo">As mães são amigas. <em>Ela viu as fotos do filho e me chamou.</em></h2>
+    <p class="reticencias">2 meses depois…</p>
+  </div>
+  <div class="rodape"><span>André Vitor · Fotografia</span><span>3/6</span></div>
+</section>
+
+<!-- 4 · A FESTA DELE -->
+<section class="slide" id="s4">
+  <div class="foto">
+    <img src="fotos/festa-bracos.jpg" style="--pos:50% 45%" alt="">
+    <img src="fotos/festa-chapeu.jpg" style="--pos:50% 30%" alt="">
+  </div>
+  <div class="texto">
+    <p class="kicker">Na festa dele</p>
+    <h2 class="titulo">…a festa era do Gabriel.</h2>
+    <p class="sub">Com o mesmo olhar da primeira vez.</p>
+  </div>
+  <div class="rodape"><span>André Vitor · Fotografia</span><span>4/6</span></div>
+</section>
+
+<!-- 5 · DETALHE (foto cheia) -->
+<section class="slide cheia" id="s5">
+  <div class="fundo"><img src="fotos/festa-close.jpg" style="--pos:50% 35%" alt=""></div>
+  <div class="texto">
+    <p class="destaque">De perto, do jeitinho dele.</p>
+  </div>
+  <div class="rodape"><span>André Vitor · Fotografia</span><span>5/6</span></div>
+</section>
+
+<!-- 6 · CTA: programa de indicação -->
+<section class="slide cta" id="s6">
+  <div class="foto"><img src="fotos/cta-mae.jpg" style="--pos:50% 40.5%" alt=""></div>
+  <div class="texto">
+    <h2 class="titulo">Indicação de mãe pra mãe é <em>o maior elogio que eu recebo.</em></h2>
+    <div class="programa">
+      <p class="pergunta">Já fotografei a festa do seu filho?</p>
+      <p>Indique pra uma amiga. Quando ela fechar, você ganha <strong>uma caixa com 15 fotos impressas 10×15.</strong></p>
+      <div class="linha"></div>
+      <p class="pergunta">Chegou por indicação?</p>
+      <p>Me manda a data no WhatsApp: <strong>(11) 94458-4666</strong></p>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
